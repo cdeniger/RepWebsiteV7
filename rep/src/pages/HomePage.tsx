@@ -6,6 +6,9 @@ const HomePage: React.FC<{ onOpenDiagnostic: () => void }> = ({
   onOpenDiagnostic,
 }) => (
   <div className="animate-fadeIn">
+    <style>
+      {`#hero-accent-text { color: #0A231F !important; }`}
+    </style>
     {/* Hero Section */}
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
       <div className="max-w-7xl mx-auto space-y-8 grid md:grid-cols-12 gap-8">
@@ -13,7 +16,7 @@ const HomePage: React.FC<{ onOpenDiagnostic: () => void }> = ({
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] animate-fadeInUp mb-8">
             The role that defines your future is out there.{" "}
             <br className="hidden md:block" />
-            <span className="italic font-normal text-oxford/80">
+            <span id="hero-accent-text" className="italic font-normal">
               You don't have to find it ALONE.
             </span>
           </h1>
