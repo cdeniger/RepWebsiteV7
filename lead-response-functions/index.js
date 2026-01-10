@@ -26,6 +26,9 @@ exports.onLeadCreate = onDocumentCreated({
   }
   const leadData = snap.data();
 
+  // Extract the first name from the full name
+  const firstName = leadData.fullName.split(" ")[0];
+
   // The 'from' address must exactly match the authenticated user (EMAIL_USER secret)
   const userFromAddress = `"Rep. Career Management" <${process.env.EMAIL_USER}>`;
   const teamFromAddress = `"Firebase Notifier" <${process.env.EMAIL_USER}>`;
@@ -35,10 +38,12 @@ exports.onLeadCreate = onDocumentCreated({
     to: leadData.email,
     subject: "Your Diagnostic Results",
     html: `
-      <h1>Hello ${leadData.fullName},</h1>
-      <p>Thank you VERY MUCH for completing our diagnostic tool. Here are your results:</p>
+      <h1>Hi ${firstName},</h1>
+      <p>Thank you for completing our quick-look Career Diagnostic. Here are your results:</p>
       <p><strong>Archetype:</strong> ${leadData.archetype}</p>
-      <p>We would love to discuss your results. Schedule a call here:</p>
+      <p>While this snapshot cannot fully capture all the variables in your specific situation, based on our 
+      clients' historical searches we can draw some quick conclusions. ${leadData.aiVerdict}</p>
+      <p>To determine if we can be helpful we would love to discuss your search, ambitions and frustrations. Schedule a call here:</p>
       <a href="https://calendly.com/patrick-repteam/30min">Schedule a Call</a>
     `,
   };
@@ -51,6 +56,9 @@ exports.onLeadCreate = onDocumentCreated({
       <h1>A new lead has been submitted:</h1>
       <p><strong>Name:</strong> ${leadData.fullName}</p>
       <p><strong>Email:</strong> ${leadData.email}</p>
+      <p><strong>Phone:</strong> ${leadData.phone}</p>
+      <p><strong>Current Status:</strong> ${leadData.answers.current_status}</p>
+      <p><strong>Career Stage:</strong> ${leadData.answers.career_stage}</p>
       <p><strong>Archetype:</strong> ${leadData.archetype}</p>
     `,
   };
