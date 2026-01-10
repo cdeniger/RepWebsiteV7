@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { X, ArrowRight, Loader2, Lock, Sparkles, AlertTriangle, Target, Check, FileText, Shield, Database } from 'lucide-react';
 import { Button } from './Button';
@@ -104,6 +105,7 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
   const [currentClarifier, setCurrentClarifier] = useState<any>(null);
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [showEmailError, setShowEmailError] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -117,6 +119,7 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
       setLoadingStep(null);
       setEmailIsValid(true);
       setShowEmailError(false);
+      setSubmissionError(null);
     }
   }, [isOpen]);
 
@@ -179,24 +182,28 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
       return;
     }
     setState(prev => ({ ...prev, step: DiagnosticStep.ANALYZING }));
-    
-    // PERSISTENCE BLOCK
-    setLoadingStep("Securing Career Profile...");
+    setSubmissionError(null);
+
     try {
-      // Step 1: Generate AI Verdict
-      const aiVerdict = await generateCareerAnalysis(state);
-      const updatedState = { ...state, aiAnalysis: aiVerdict };
-      
-      // Step 2: Save to Firestore
-      setLoadingStep("Synching with Agent Network...");
-      await saveLeadData(updatedState);
-      
-      setState(prev => ({ ...prev, step: DiagnosticStep.RESULT, aiAnalysis: aiVerdict }));
+        setLoadingStep("Securing Career Profile...");
+        const aiVerdict = await generateCareerAnalysis(state);
+        const updatedState = { ...state, aiAnalysis: aiVerdict };
+        
+        setLoadingStep("Synching with Agent Network...");
+        await saveLeadData(updatedState);
+        
+        setState(prev => ({ ...prev, step: DiagnosticStep.RESULT, aiAnalysis: aiVerdict }));
     } catch (err) {
-      console.error("Diagnostic persistence error", err);
-      setState(prev => ({ ...prev, step: DiagnosticStep.RESULT, aiAnalysis: "Strategic intelligence systems are processing. Your data is secure." }));
+        console.error("Submission Error:", err);
+        let errorMessage = "An unexpected error occurred. Please try again.";
+        if (err instanceof Error) {
+            errorMessage = `Submission Failed: ${err.message}. Please check the console for details.`
+        }
+        setSubmissionError(errorMessage);
+        // Revert to the lead capture step to show the error
+        setState(prev => ({ ...prev, step: DiagnosticStep.LEAD_CAPTURE }));
     } finally {
-      setLoadingStep(null);
+        setLoadingStep(null);
     }
   };
 
@@ -309,6 +316,12 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
 
           {state.step === DiagnosticStep.LEAD_CAPTURE && (
             <div className="space-y-8 animate-fadeIn max-w-lg mx-auto w-full">
+                 {submissionError && (
+                    <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong className="font-bold">Error!</strong>
+                        <span className="block sm:inline"> {submissionError}</span>
+                    </div>
+                )}
               <div className="text-center space-y-2">
                 <Lock size={32} className="text-signal mx-auto mb-4" />
                 <h3 className="font-serif text-3xl font-bold">Your Snapshot is Ready.</h3>

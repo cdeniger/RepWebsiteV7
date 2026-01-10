@@ -1,14 +1,8 @@
 {
   "functions": [
     {
-      "codebase": "default",
-      "source": "functions",
-      "runtime": "nodejs20"
-    },
-    {
       "source": "lead-response-functions",
       "codebase": "leadresponse",
-      "disallowLegacyRuntimeConfig": true,
       "ignore": [
         "node_modules",
         ".git",

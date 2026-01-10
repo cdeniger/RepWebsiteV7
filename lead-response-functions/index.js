@@ -6,18 +6,19 @@ const nodemailer = require("nodemailer");
 
 admin.initializeApp();
 
-// Nodemailer transporter configuration
-const transporter = nodemailer.createTransport({
-  host: "smtp.mail.me.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: "cdeniger@icloud.com",
-    pass: "layt-pmyp-dqjb-txte",
-  },
-});
+exports.onLeadCreate = onDocumentCreated({
+  document: "leads/{leadId}",
+  secrets: ["EMAIL_USER", "EMAIL_PASS"],
+}, async (event) => {
+  // Securely using secrets and ensuring the 'from' address matches the authenticated user.
+  const transporter = nodemailer.createTransport({
+    service: "iCloud",
+    auth: {
+      user: process.env.EMAIL_USER, // Secret loaded at runtime
+      pass: process.env.EMAIL_PASS, // Secret loaded at runtime
+    },
+  });
 
-exports.onLeadCreate = onDocumentCreated("leads/{leadId}", async (event) => {
   const snap = event.data;
   if (!snap) {
     logger.log("No data associated with the event");
@@ -25,28 +26,30 @@ exports.onLeadCreate = onDocumentCreated("leads/{leadId}", async (event) => {
   }
   const leadData = snap.data();
 
-  // Email to the user
+  // The 'from' address must exactly match the authenticated user (EMAIL_USER secret)
+  const userFromAddress = `"Rep. Career Management" <${process.env.EMAIL_USER}>`;
+  const teamFromAddress = `"Firebase Notifier" <${process.env.EMAIL_USER}>`;
+
   const userMailOptions = {
-    from: `"Rep. Career Management" <cdeniger@icloud.com>`,
+    from: userFromAddress,
     to: leadData.email,
     subject: "Your Diagnostic Results",
     html: `
-      <h1>Hello ${leadData.name},</h1>
-      <p>Thank you for completing our diagnostic tool. Here are your results:</p>
+      <h1>Hello ${leadData.fullName},</h1>
+      <p>Thank you VERY MUCH for completing our diagnostic tool. Here are your results:</p>
       <p><strong>Archetype:</strong> ${leadData.archetype}</p>
       <p>We would love to discuss your results. Schedule a call here:</p>
-      <a href="https://your-scheduling-link.com">Schedule a Call</a>
+      <a href="https://calendly.com/patrick-repteam/30min">Schedule a Call</a>
     `,
   };
 
-  // Notification email to the team
   const teamMailOptions = {
-    from: `"Firebase Notifier" <cdeniger@icloud.com>`,
+    from: teamFromAddress,
     to: "cdeniger@icloud.com",
     subject: "New Diagnostic Lead",
     html: `
       <h1>A new lead has been submitted:</h1>
-      <p><strong>Name:</strong> ${leadData.name}</p>
+      <p><strong>Name:</strong> ${leadData.fullName}</p>
       <p><strong>Email:</strong> ${leadData.email}</p>
       <p><strong>Archetype:</strong> ${leadData.archetype}</p>
     `,
@@ -54,10 +57,11 @@ exports.onLeadCreate = onDocumentCreated("leads/{leadId}", async (event) => {
 
   try {
     await transporter.sendMail(userMailOptions);
-    logger.log("User email sent to:", leadData.email);
+    logger.log(`User email sent to: ${leadData.email}`);
     await transporter.sendMail(teamMailOptions);
     logger.log("Team notification email sent.");
   } catch (error) {
-    logger.error("Error sending emails:", error);
+    logger.error("Fatal Error sending emails:", error);
+    throw new Error(`Failed to send email: ${error.message}`);
   }
 });

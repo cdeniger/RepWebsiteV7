@@ -6,6 +6,11 @@
     pkgs.firebase-tools # Provides the Firebase CLI for project management.
   ];
 
+  env = {
+    EMAIL_USER = "your-email@example.com";
+    EMAIL_PASS = "your-email-password";
+  };
+
   idx = {
     extensions = [ # A list of VS Code extensions to install.
       "dbaeumer.vscode-eslint" # Integrates ESLint for code linting.
