@@ -53,18 +53,23 @@ const calculateScores = (answers: any) => {
   if (['Senior / Staff+ individual contributor', 'Manager / people leader', 'Executive'].includes(answers.career_stage)) leverage += 10;
   let risk = 30;
   if (answers.environment_fit === 'Depends heavily on leadership') risk += 15;
-  let clarity = 60;
+  let clarity = 40;
   if (['Quality of judgment', 'Ability to bridge functions'].includes(answers.differentiator)) clarity += 15;
   return { leverage, risk, clarity };
 };
 
 const generateMarketRead = (answers: any) => {
   const scores = calculateScores(answers);
-  let hookType = "leverage";
-  if (scores.leverage >= 60) hookType = "leverage";
-  else if (scores.clarity <= 50) hookType = "clarity";
-  else if (scores.risk >= 55) hookType = "risk";
-  else hookType = "overqualified";
+  // Default to the most common case, then check for more specific overrides.
+  let hookType = "overqualified"; 
+
+  if (scores.leverage >= 60) {
+    hookType = "leverage";
+  } else if (scores.risk >= 45) { // This is now a reachable condition
+    hookType = "risk";
+  } else if (scores.clarity <= 40) { // This is now a reachable condition
+    hookType = "clarity";
+  }
 
   const dataMap: any = {
     leverage: { title: "Underestimated Leverage", copy: "The market is likely underestimating where you create value — offering you roles that feel 'safe' but quietly cap upside.", diagnosis: "Search Mismatch: Occurs when professionals with high judgment operate in searches optimized for checklists rather than outcomes.", consequences: ["Capped earning potential", "Negotiating from competency rather than leverage", "Boredom within 12 months"], patterns: ["Ambiguous Ownership Roles", "Underpowered Function Needing a Builder", "High-Trust Lead Roles"] },
@@ -394,7 +399,7 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
                     <div className="space-y-2">
                       {state.snapshotData.patterns.map((p: string, i: number) => (
                         <div key={i} className="p-3 border border-oxford/10 bg-white text-sm font-serif">{p}</div>
-                      ))}
+                      ))}/
                     </div>
                   </div>
 
