@@ -10,15 +10,15 @@ admin.initializeApp({
 const db = admin.firestore();
 
 async function createTestLead() {
-  const leadRef = db.collection('leads').doc('test-lead-actively-interviewing');
+  const leadsCollection = db.collection('leads');
 
   try {
-    await leadRef.set({
-      fullName: "Andrea Test",
+    await leadsCollection.add({
+      fullName: "Casey Test",
       email: "cdeniger@orep.com",
       phone: "555-123-4567",
       answers: {
-        current_status: "Actively interviewing",
+        current_status: "Employed, passively exploring",
         career_stage: "Mid-Career"
       },
       archetype: "The Under-Leveraged Expert",
@@ -35,7 +35,7 @@ async function createTestLead() {
         "Organizations that have recently received funding"
       ]
     });
-    console.log('Test lead created successfully!');
+    console.log('Test lead created successfully with a new unique ID!');
   } catch (error) {
     console.error('Error creating test lead:', error);
     process.exit(1);
