@@ -1,10 +1,8 @@
-
 const scoringConfig = {
   // Phase 1: The Kill Switch (Auto-Reject)
   killSwitchCriteria: {
     workAuth: ["I require visa sponsorship to work in the US."],
     experience: ["Less than 3 years"],
-    currentSalary: ["Under $80,000"],
   },
 
   // Phase 2: Weighted Scoring
@@ -20,13 +18,14 @@ const scoringConfig = {
     },
     hiringVelocity: {
       status: {
-        "Passive: Happily employed but open to strategic moves.": 10,
-        "Active: Employed but actively looking to leave.": 10,
-        "In Transition: Unemployed (< 3 months).": 5,
-        "Long-Term Transition: Unemployed (> 6 months).": -10,
+        "Employed Passive: Happily Employed but open to strategic moves": 10,
+        "Employed Active: Employed but actively looking for a new home": 15,
+        "Recent Transition: Between positions for 0-6 months": 5,
+        "Full Transition: Actively looking for > 6 months": -10,
+        "Re-entry: Out of the market > 24 months but now looking": 0,
       },
       pipeline: {
-        "Cold: Just started looking; no traction yet.": 0,
+        "Cold: Not started/just started looking; no traction yet.": 0,
         "Warm: Applied to roles, waiting on responses.": 5,
         "Hot: Currently in active interview loops.": 20,
         "Closing: Have an offer in hand (or expecting one soon) and need negotiation support.": 30,
@@ -59,24 +58,33 @@ function parseSalary(salaryString) {
   return 0;
 }
 
+function parseTargetComp(targetCompString) {
+  if (!targetCompString) return 0;
+  const match = targetCompString.match(/\d+/);
+  if (match) {
+    return parseInt(match[0], 10) * 1000;
+  }
+  return 0;
+}
+
 
 function calculateScore(applicationData) {
   let score = 0;
 
   // Kill Switch Check
   if (
-    scoringConfig.killSwitchCriteria.workAuth.includes(applicationData.workAuthorization) ||
-    scoringConfig.killSwitchCriteria.experience.includes(applicationData.yearsOfExperience)
+    scoringConfig.killSwitchCriteria.workAuth.includes(applicationData.workAuth) ||
+    scoringConfig.killSwitchCriteria.experience.includes(applicationData.experience)
   ) {
     return 0;
   }
-  
+
   // Economic Value
   score += scoringConfig.weights.economicValue.currentSalary[applicationData.currentSalary] || 0;
 
   // Target Comp Uplift
   const currentSalaryValue = parseSalary(applicationData.currentSalary);
-  const targetCompValue = parseInt(applicationData.targetComp, 10);
+  const targetCompValue = parseTargetComp(applicationData.targetComp);
 
   if (currentSalaryValue > 0 && targetCompValue > 0) {
     const upliftRatio = (targetCompValue - currentSalaryValue) / currentSalaryValue;

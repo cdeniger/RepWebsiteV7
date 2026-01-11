@@ -143,7 +143,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
               Achievement-Forward Asset Portfolio (résumé, LinkedIn, bio) that
               executes your specific narrative strategy.
             </p>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={onOpenApplication}>
               Book Prep Session
             </Button>
           </div>
@@ -161,7 +161,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
               storytellers. We provide targeted coaching to translate 'deep
               problem solving' into business impact.
             </p>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={onOpenApplication}>
               Book Prep Session
             </Button>
           </div>
@@ -179,7 +179,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
               script your Shadow Negotiation dialogue to ensure a 'Future
               Colleague' outcome.
             </p>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={onOpenApplication}>
               Audit My Offer
             </Button>
           </div>
@@ -233,7 +233,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
           <p className="font-mono text-xs text-oxford/50 mb-6">
             (Activates after ISA fulfillment)
           </p>
-          <Button variant="outline" className="w-full">
+          <Button variant="outline" className="w-full" onClick={onOpenApplication}>
             Join Stewardship Program
           </Button>
         </div>
