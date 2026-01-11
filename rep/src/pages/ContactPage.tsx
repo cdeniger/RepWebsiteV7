@@ -38,7 +38,7 @@ const ContactPage: React.FC<{ onOpenDiagnostic: () => void, onOpenApplication: (
                 </div>
                 <a
                   href="mailto:hello@REPteam.com"
-                  className="hover:text-signal transition-colors"
+                  className="[@media(hover:hover)]:hover:text-signal transition-colors"
                 >
                   hello@REPteam.com
                 </a>
@@ -49,7 +49,7 @@ const ContactPage: React.FC<{ onOpenDiagnostic: () => void, onOpenApplication: (
                 </div>
                 <a
                   href="mailto:media@REPteam.com"
-                  className="hover:text-signal transition-colors"
+                  className="[@media(hover:hover)]:hover:text-signal transition-colors"
                 >
                   media@REPteam.com
                 </a>
@@ -60,7 +60,7 @@ const ContactPage: React.FC<{ onOpenDiagnostic: () => void, onOpenApplication: (
                 </div>
                 <a
                   href="mailto:billing@cpf-services.com"
-                  className="hover:text-signal transition-colors"
+                  className="[@media(hover:hover)]:hover:text-signal transition-colors"
                 >
                   billing@cpf-services.com
                 </a>

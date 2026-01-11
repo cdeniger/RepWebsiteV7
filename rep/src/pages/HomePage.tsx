@@ -22,13 +22,17 @@ const HomePage: React.FC<{
                 You don't have to find it ALONE.
               </span>
             </h1>
-            <p className="font-mono text-sm md:text-base leading-relaxed max-w-2xl text-oxford/70 mb-8">
-              Your career is a high-value asset, and it deserves to be managed
-              with precision. We provide the market intelligence, negotiation
-              strategy, and long-term career architecture to ensure your next step
-              maximizes your trajectory. Don't just fill a role... execute a
-              strategy.
-            </p>
+            <div className="font-mono text-sm md:text-base leading-relaxed max-w-2xl text-oxford/70 mb-8 space-y-4">
+              <p>
+                Finding a great job isn’t just about applying harder — it’s about being positioned correctly and showing up in the right conversations.
+              </p>
+              <p>
+                Rep. partners with you to systematically build and advance your opportunity pipeline — aligning positioning, market signals, and outreach so the right roles engage.
+              </p>
+              <p>
+                <b>Don’t just look for a job. Land the role that actually moves your career forward.</b>
+              </p>
+            </div>
             <div className="pt-2">
               <Button onClick={onOpenDiagnostic}>Run My Career Diagnostic</Button>
             </div>

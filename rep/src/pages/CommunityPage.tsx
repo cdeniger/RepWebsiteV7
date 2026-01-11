@@ -41,7 +41,7 @@ const CommunityPage: React.FC<{ onOpenApplication: () => void }> = ({
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Tier 1 */}
-          <div className="bg-white/5 border border-bone/10 p-8 hover:bg-white/10 transition-colors group">
+          <div className="bg-white/5 border border-bone/10 p-8 [@media(hover:hover)]:hover:bg-white/10 transition-colors group">
             <div className="text-signal mb-6">
               <Users size={40} strokeWidth={1.5} />
             </div>
@@ -59,7 +59,7 @@ const CommunityPage: React.FC<{ onOpenApplication: () => void }> = ({
           </div>
 
           {/* Tier 2 */}
-          <div className="bg-white/5 border border-bone/10 p-8 hover:bg-white/10 transition-colors group">
+          <div className="bg-white/5 border border-bone/10 p-8 [@media(hover:hover)]:hover:bg-white/10 transition-colors group">
             <div className="text-signal mb-6">
               <Share2 size={40} strokeWidth={1.5} />
             </div>
@@ -78,7 +78,7 @@ const CommunityPage: React.FC<{ onOpenApplication: () => void }> = ({
           </div>
 
           {/* Tier 3 */}
-          <div className="bg-white/5 border border-bone/10 p-8 hover:bg-white/10 transition-colors group">
+          <div className="bg-white/5 border border-bone/10 p-8 [@media(hover:hover)]:hover:bg-white/10 transition-colors group">
             <div className="text-signal mb-6">
               <Video size={40} strokeWidth={1.5} />
             </div>

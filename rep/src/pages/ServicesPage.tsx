@@ -62,6 +62,15 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
               <div className="flex items-start gap-4">
                 <Check className="text-signal shrink-0 mt-1" size={20} />
                 <div>
+                  <span className="font-bold block">Recharged Pipeline</span>
+                  <span className="text-sm text-oxford/60">
+                    Add Rep. proprietary public and non-public job opportunities
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="text-signal shrink-0 mt-1" size={20} />
+                <div>
                   <span className="font-bold block">
                     Shadow Negotiation Support
                   </span>
@@ -131,7 +140,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Sprint 1 */}
-          <div className="bg-white p-8 border border-oxford/10 hover:border-signal transition-colors group flex flex-col">
+          <div className="bg-white p-8 border border-oxford/10 [@media(hover:hover)]:hover:border-signal transition-colors group flex flex-col">
             <div className="mb-6 text-oxford/20 group-hover:text-signal transition-colors">
               <FileText size={32} />
             </div>
@@ -149,7 +158,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
           </div>
 
           {/* Sprint 2 */}
-          <div className="bg-white p-8 border border-oxford/10 hover:border-signal transition-colors group flex flex-col">
+          <div className="bg-white p-8 border border-oxford/10 [@media(hover:hover)]:hover:border-signal transition-colors group flex flex-col">
             <div className="mb-6 text-oxford/20 group-hover:text-signal transition-colors">
               <Zap size={32} />
             </div>
@@ -167,7 +176,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
           </div>
 
           {/* Sprint 3 */}
-          <div className="bg-white p-8 border border-oxford/10 hover:border-signal transition-colors group flex flex-col">
+          <div className="bg-white p-8 border border-oxford/10 [@media(hover:hover)]:hover:border-signal transition-colors group flex flex-col">
             <div className="mb-6 text-oxford/20 group-hover:text-signal transition-colors">
               <Clock size={32} />
             </div>

@@ -227,7 +227,7 @@ if (!validateEmail(state.leadInfo.email)) {
             <span className="w-2 h-2 bg-signal rounded-full"></span>
             Career Positioning Snapshot
           </div>
-          <button onClick={onClose} className="text-oxford hover:text-signal transition-colors">
+          <button onClick={onClose} className="text-oxford [@media(hover:hover)]:hover:text-signal transition-colors">
             <X size={24} />
           </button>
         </div>
@@ -265,7 +265,7 @@ if (!validateEmail(state.leadInfo.email)) {
               )}
               <div className="grid gap-3">
                 {currentQ.type === 'single' && currentQ.options?.map(opt => (
-                  <button key={opt} onClick={() => handleAnswer(opt)} className="p-4 border border-oxford/10 hover:border-signal hover:bg-white text-left transition-all font-serif text-lg font-medium">
+                  <button key={opt} onClick={() => handleAnswer(opt)} className="p-4 border border-oxford/10 [@media(hover:hover)]:hover:border-signal [@media(hover:hover)]:hover:bg-white text-left transition-all font-serif text-lg font-medium">
                     {opt}
                   </button>
                 ))}
@@ -279,7 +279,7 @@ if (!validateEmail(state.leadInfo.email)) {
                             const curr = (state.answers[currentQ.id as keyof typeof state.answers] as string[]) || [];
                             if (isSelected) handleAnswer(curr.filter(x => x !== opt));
                             else if (curr.length < (currentQ.max || 1)) handleAnswer([...curr, opt]);
-                          }} className={`p-4 border text-left transition-all font-serif text-lg font-medium ${isSelected ? 'border-signal bg-white' : 'border-oxford/10 hover:border-signal'}`}>
+                          }} className={`p-4 border text-left transition-all font-serif text-lg font-medium ${isSelected ? 'border-signal bg-white' : 'border-oxford/10 [@media(hover:hover)]:hover:border-signal'}`}>
                             {opt}
                           </button>
                         );
@@ -294,7 +294,7 @@ if (!validateEmail(state.leadInfo.email)) {
                   <div className="space-y-6">
                     <textarea className="w-full bg-white border border-oxford/10 p-4 font-serif focus:outline-none focus:border-signal min-h-[120px]" placeholder={currentQ.placeholder} onChange={(e) => handleAnswer(e.target.value)} />
                     <div className="flex justify-between items-center">
-                      <button onClick={handleNext} className="font-mono text-xs uppercase text-oxford/40 hover:text-oxford">Skip</button>
+                      <button onClick={handleNext} className="font-mono text-xs uppercase text-oxford/40 [@media(hover:hover)]:hover:text-oxford">Skip</button>
                       <Button onClick={handleNext}>Finish Assessment</Button>
                     </div>
                   </div>
@@ -311,7 +311,7 @@ if (!validateEmail(state.leadInfo.email)) {
               <h3 className="font-serif text-3xl md:text-4xl text-oxford leading-tight">{currentClarifier.question}</h3>
               <div className="grid gap-3">
                 {currentClarifier.options.map((opt: string) => (
-                  <button key={opt} onClick={() => handleClarifierSubmit(opt)} className="p-4 border border-oxford/10 hover:border-signal hover:bg-white text-left transition-all font-serif text-lg font-medium">
+                  <button key={opt} onClick={() => handleClarifierSubmit(opt)} className="p-4 border border-oxford/10 [@media(hover:hover)]:hover:border-signal [@media(hover:hover)]:hover:bg-white text-left transition-all font-serif text-lg font-medium">
                     {opt}
                   </button>
                 ))}

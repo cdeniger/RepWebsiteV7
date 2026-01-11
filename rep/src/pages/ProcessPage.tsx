@@ -22,7 +22,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
 
         <div className="space-y-12 relative max-w-5xl mx-auto">
           {/* Phase 1 */}
-          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white hover:border-signal/50 transition-colors shadow-sm">
+          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white [@media(hover:hover)]:hover:border-signal/50 transition-colors shadow-sm">
             <div className="md:w-1/3">
               <div className="font-mono text-signal text-sm font-bold uppercase tracking-widest mb-2">
                 Phase I
@@ -49,7 +49,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
           </div>
 
           {/* Phase 2 */}
-          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white hover:border-signal/50 transition-colors shadow-sm">
+          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white [@media(hover:hover)]:hover:border-signal/50 transition-colors shadow-sm">
             <div className="md:w-1/3">
               <div className="font-mono text-signal text-sm font-bold uppercase tracking-widest mb-2">
                 Phase II
@@ -77,7 +77,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
           </div>
 
           {/* Phase 3 */}
-          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white hover:border-signal/50 transition-colors shadow-sm">
+          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white [@media(hover:hover)]:hover:border-signal/50 transition-colors shadow-sm">
             <div className="md:w-1/3">
               <div className="font-mono text-signal text-sm font-bold uppercase tracking-widest mb-2">
                 Phase III
@@ -138,7 +138,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-white/5 border border-bone/10 p-6 hover:bg-white/10 transition-colors group"
+              className="bg-white/5 border border-bone/10 p-6 [@media(hover:hover)]:hover:bg-white/10 transition-colors group"
             >
               <div className="font-mono text-signal text-xs uppercase tracking-widest mb-3">
                 {item.week}
