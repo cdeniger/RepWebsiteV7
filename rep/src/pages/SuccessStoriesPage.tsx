@@ -37,16 +37,16 @@ export default function SuccessStoriesPage({ onOpenApplication }: { onOpenApplic
       </section>
 
       {/* Closing Statement */}
-      <section className="py-32 px-6 noir-gradient text-bone text-center relative border-t border-bone/5">
+      <section className="py-32 px-6 bg-oxford text-bone text-center relative border-t border-bone/5">
         <div className="max-w-2xl mx-auto space-y-12">
           <div className="w-12 h-px bg-signal mx-auto"></div>
           <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">Initiate Your Strategy.</h2>
-          <p className="font-serif text-lg text-bone/50 italic leading-relaxed max-w-xl mx-auto">
+          <p className="font-serif text-xl text-bone/50 italic leading-relaxed max-w-xl mx-auto">
             "Your career trajectory is a structural decision, not a chance encounter. 
             We provide the architecture for the outcome you deserve."
           </p>
           <div className="pt-6">
-            <Button onClick={onOpenApplication} variant="signal">
+            <Button onClick={onOpenApplication} variant="solid">
               Begin Application <ArrowRight className="ml-3 w-4 h-4" />
             </Button>
           </div>
