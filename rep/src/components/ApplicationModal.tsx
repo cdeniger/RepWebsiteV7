@@ -15,6 +15,9 @@ import {
   VStack,
   Heading,
   useToast,
+  Flex,
+  Box,
+  Text,
 } from '@chakra-ui/react';
 import { db, storage } from '../firebase-config'; // Import db and storage
 import { addDoc, collection } from 'firebase/firestore';
@@ -87,7 +90,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({ isOpen, onClose }) 
       // 3. Show success message and close modal
       toast({
         title: 'Dossier Received.',
-        description: "Your profile has been securely uploaded to the Rep. Admissions Committee.",
+        description: "Your profile has been securely uploaded for your Rep. advisor's review",
         status: 'success',
         duration: 9000,
         isClosable: true,
@@ -110,14 +113,25 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({ isOpen, onClose }) 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Apply for Representation</ModalHeader>
+      <ModalContent color="#1D242E" borderRadius="md" overflow="hidden">
+        <ModalHeader
+          bg="white"
+          borderBottom="1px solid"
+          borderColor="gray.200"
+        >
+          <Flex align="center">
+            <Box bg="#C95B32" w="8px" h="8px" borderRadius="full" mr={3} />
+            <Text fontFamily="mono" fontSize="sm" fontWeight="bold" color="#C95B32">
+              TELL US ABOUT YOU
+            </Text>
+          </Flex>
+        </ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody py={6} bg="#F7F2ED">
           <form onSubmit={handleSubmit}>
             <VStack spacing={6} align="stretch">
               {/* Section A: The Dossier */}
-              <Heading as="h3" size="md">Section A: The Dossier</Heading>
+              <Heading as="h3" size="md" fontFamily="serif">Section A: The Dossier</Heading>
               <FormControl isRequired>
                 <FormLabel>Full Name</FormLabel>
                 <Input name="fullName" onChange={handleInputChange} />
@@ -136,7 +150,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({ isOpen, onClose }) 
               </FormControl>
 
               {/* Section B: The Gate */}
-              <Heading as="h3" size="md">Section B: The Gate</Heading>
+              <Heading as="h3" size="md" fontFamily="serif">Section B: The Gate</Heading>
               <FormControl isRequired>
                 <FormLabel>Work Authorization Status</FormLabel>
                 <Select name="workAuth" onChange={handleInputChange} placeholder="Select status">
@@ -151,12 +165,12 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({ isOpen, onClose }) 
                   <option>Less than 3 years</option>
                   <option>3 – 7 years</option>
                   <option>8 – 15 years</option>
-                  <option>15+ years (Executive/C-Suite)</option>
+                  <option>15+ years</option>
                 </Select>
               </FormControl>
 
               {/* Section C: The Value Matrix */}
-              <Heading as="h3" size="md">Section C: The Value Matrix</Heading>
+              <Heading as="h3" size="md" fontFamily="serif">Section C: The Value Matrix</Heading>
               <FormControl isRequired>
                 <FormLabel>Current (or Most Recent) Base Salary</FormLabel>
                 <Select name="currentSalary" onChange={handleInputChange} placeholder="Select salary range">
@@ -169,28 +183,29 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({ isOpen, onClose }) 
               <FormControl isRequired>
                 <FormLabel>Target Compensation (Base + Bonus)</FormLabel>
                 <Select name="targetComp" onChange={handleInputChange} placeholder="Select target range">
-                  <option>$100k – $150k</option>
-                  <option>$150k – $250k</option>
-                  <option>$250k – $400k</option>
+                  <option>&lt;$150k</option>
+                  <option>$150k - $250k</option>
+                  <option>$250k - $400k</option>
                   <option>$400k+</option>
                 </Select>
               </FormControl>
 
               {/* Section D: The Velocity Matrix */}
-              <Heading as="h3" size="md">Section D: The Velocity Matrix</Heading>
+              <Heading as="h3" size="md" fontFamily="serif">Section D: The Velocity Matrix</Heading>
               <FormControl isRequired>
                 <FormLabel>Current Employment Status</FormLabel>
                 <Select name="employmentStatus" onChange={handleInputChange} placeholder="Select status">
-                    <option>Passive: Happily employed but open to strategic moves.</option>
-                    <option>Active: Employed but actively looking to leave.</option>
-                    <option>In Transition: Unemployed (&lt; 3 months).</option>
-                    <option>Long-Term Transition: Unemployed (&gt; 6 months).</option>
+                    <option>Employed Passive: Happily Employed but open to strategic moves</option>
+                    <option>Employed Active: Employed but actively looking for a new home</option>
+                    <option>Recent Transition: Between positions for 0-6 months</option>
+                    <option>Full Transition: Actively looking for &gt; 6 months</option>
+                    <option>Re-entry: Out of the market &gt; 24 months but now looking</option>
                 </Select>
               </FormControl>
               <FormControl isRequired>
                 <FormLabel>Pipeline Velocity</FormLabel>
                 <Select name="pipelineVelocity" onChange={handleInputChange} placeholder="Select velocity">
-                    <option>Cold: Just started looking; no traction yet.</option>
+                    <option>Cold: Not started/just started looking; no traction yet.</option>
                     <option>Warm: Applied to roles, waiting on responses.</option>
                     <option>Hot: Currently in active interview loops.</option>
                     <option>Closing: Have an offer in hand (or expecting one soon) and need negotiation support.</option>
@@ -209,12 +224,14 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({ isOpen, onClose }) 
           </form>
         </ModalBody>
 
-        <ModalFooter>
+        <ModalFooter bg="#F7F2ED">
           <Button variant="ghost" mr={3} onClick={onClose}>
             Cancel
           </Button>
           <Button
-            colorScheme="blue"
+            bg="#C95B32"
+            color="white"
+            _hover={{ bg: '#A94D29' }}
             onClick={handleSubmit}
             isLoading={isSubmitting}
             loadingText="Submitting"
