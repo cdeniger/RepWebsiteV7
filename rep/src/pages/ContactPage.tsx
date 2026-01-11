@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from '../components/Button';
 
-const ContactPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
+const ContactPage: React.FC<{ onOpenDiagnostic: () => void, onOpenApplication: () => void }> = ({
   onOpenDiagnostic,
+  onOpenApplication,
 }) => (
   <div className="animate-fadeIn">
     {/* A. VISUAL & TYPOGRAPHY CONTEXT */}
@@ -95,7 +96,7 @@ const ContactPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
     {/* Footer CTA */}
     <section className="py-24 px-6 bg-oxford text-bone text-center">
       <h2 className="font-serif text-4xl font-bold mb-8">Ready to move?</h2>
-      <Button onClick={onOpenDiagnostic}>Get Represented</Button>
+      <Button onClick={onOpenApplication}>Get Represented</Button>
     </section>
   </div>
 );

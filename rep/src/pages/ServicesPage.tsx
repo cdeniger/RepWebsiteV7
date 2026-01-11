@@ -2,7 +2,9 @@ import React from 'react';
 import { Briefcase, Check, Clock, FileText, Zap } from 'lucide-react';
 import { Button } from '../components/Button';
 
-const ServicesPage: React.FC = () => (
+const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
+  onOpenApplication,
+}) => (
   <div className="animate-fadeIn">
     {/* Header */}
     <section className="pt-32 pb-16 px-6 bg-oxford text-bone">
@@ -70,7 +72,7 @@ const ServicesPage: React.FC = () => (
               </div>
             </div>
 
-            <Button>Apply for Representation</Button>
+            <Button onClick={onOpenApplication}>Apply for Representation</Button>
           </div>
 
           {/* Fee Model Card */}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '../components/Button';
 
-const AboutPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
-  onOpenDiagnostic,
+const AboutPage: React.FC<{ onOpenApplication: () => void }> = ({
+  onOpenApplication,
 }) => (
   <div className="animate-fadeIn">
     {/* SECTION 1: HERO / MISSION STATEMENT */}
@@ -96,7 +96,7 @@ const AboutPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
             trajectory you’ve earned.
           </p>
           <div className="pt-4">
-            <Button onClick={onOpenDiagnostic}>Get Represented</Button>
+            <Button onClick={onOpenApplication}>Get Represented</Button>
           </div>
         </div>
         {/* Visual Abstract Decoration */}

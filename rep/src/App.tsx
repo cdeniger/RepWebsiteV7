@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './components/Button';
 import { DiagnosticModal } from './components/DiagnosticModal';
+import ApplicationModal from './components/ApplicationModal';
 import { BrandLogo } from './components/BrandLogo';
 import { LoginModal } from './components/LoginModal';
 import HomePage from './pages/HomePage';
@@ -13,6 +14,7 @@ import ContactPage from './pages/ContactPage';
 
 export default function App() {
   const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
+  const [isApplicationOpen, setIsApplicationOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [view, setView] = useState<
     "home" | "about" | "services" | "process" | "community" | "contact"
@@ -34,7 +36,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen font-serif text-oxford selection:bg-signal selection:text-white bg-bone">
+    <div 
+      className="min-h-screen font-serif text-oxford selection:bg-signal selection:text-white bg-bone"
+    >
       {/* Navigation */}
       <nav className="fixed w-full z-40 bg-bone/90 backdrop-blur-md border-b border-oxford/5">
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
@@ -165,20 +169,26 @@ export default function App() {
       {/* Main Content */}
       <main className="min-h-screen">
         {view === "home" && (
-          <HomePage onOpenDiagnostic={() => setIsDiagnosticOpen(true)} />
+          <HomePage 
+            onOpenDiagnostic={() => setIsDiagnosticOpen(true)} 
+            onOpenApplication={() => setIsApplicationOpen(true)}
+          />
         )}
         {view === "about" && (
-          <AboutPage onOpenDiagnostic={() => setIsDiagnosticOpen(true)} />
+          <AboutPage onOpenApplication={() => setIsApplicationOpen(true)} />
         )}
-        {view === "services" && <ServicesPage />}
+        {view === "services" && <ServicesPage onOpenApplication={() => setIsApplicationOpen(true)} />}
         {view === "process" && (
-          <ProcessPage onOpenDiagnostic={() => setIsDiagnosticOpen(true)} />
+          <ProcessPage onOpenApplication={() => setIsApplicationOpen(true)} />
         )}
         {view === "community" && (
-          <CommunityPage onOpenDiagnostic={() => setIsDiagnosticOpen(true)} />
+          <CommunityPage onOpenApplication={() => setIsApplicationOpen(true)} />
         )}
         {view === "contact" && (
-          <ContactPage onOpenDiagnostic={() => setIsDiagnosticOpen(true)} />
+          <ContactPage 
+            onOpenDiagnostic={() => setIsDiagnosticOpen(true)} 
+            onOpenApplication={() => setIsApplicationOpen(true)} 
+          />
         )}
       </main>
 
@@ -207,6 +217,12 @@ export default function App() {
       <DiagnosticModal
         isOpen={isDiagnosticOpen}
         onClose={() => setIsDiagnosticOpen(false)}
+      />
+
+      {/* Application Modal Component */}
+      <ApplicationModal
+        isOpen={isApplicationOpen}
+        onClose={() => setIsApplicationOpen(false)}
       />
 
       {/* Login Modal Component */}

@@ -2,8 +2,8 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 
-const ProcessPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
-  onOpenDiagnostic,
+const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
+  onOpenApplication,
 }) => (
   <div className="animate-fadeIn">
     {/* B. HIGH-LEVEL OVERVIEW */}
@@ -228,7 +228,7 @@ const ProcessPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
       <h2 className="font-serif text-4xl font-bold mb-8">
         Ready to Execute Your Strategy?
       </h2>
-      <Button onClick={onOpenDiagnostic}>Get Represented</Button>
+      <Button onClick={onOpenApplication}>Get Represented</Button>
     </section>
   </div>
 );

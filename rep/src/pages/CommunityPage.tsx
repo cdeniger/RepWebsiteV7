@@ -2,8 +2,8 @@ import React from 'react';
 import { Lock, Share2, Users, Video } from 'lucide-react';
 import { Button } from '../components/Button';
 
-const CommunityPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
-  onOpenDiagnostic,
+const CommunityPage: React.FC<{ onOpenApplication: () => void }> = ({
+  onOpenApplication,
 }) => (
   <div className="animate-fadeIn">
     {/* B. HERO SECTION: THE VALUE PROPOSITION */}
@@ -147,7 +147,7 @@ const CommunityPage: React.FC<{ onOpenDiagnostic: () => void }> = ({
         <p className="font-mono text-sm text-oxford/60">
           Community access is exclusive to active Rep. clients and alumni.
         </p>
-        <Button onClick={onOpenDiagnostic}>Apply for Representation</Button>
+        <Button onClick={onOpenApplication}>Apply for Representation</Button>
       </div>
     </section>
   </div>
