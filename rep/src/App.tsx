@@ -9,7 +9,7 @@ import HomePage from './pages/HomePage';
 import ProcessPage from './pages/ProcessPage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
-import CommunityPage from './pages/CommunityPage';
+import SuccessStoriesPage from './pages/SuccessStoriesPage';
 import ContactPage from './pages/ContactPage';
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
   const [isApplicationOpen, setIsApplicationOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [view, setView] = useState<
-    "home" | "about" | "services" | "process" | "community" | "contact"
+    "home" | "about" | "services" | "process" | "successStories" | "contact"
   >("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -27,7 +27,7 @@ export default function App() {
       | "about"
       | "services"
       | "process"
-      | "community"
+      | "successStories"
       | "contact",
   ) => {
     setView(newView);
@@ -77,10 +77,10 @@ export default function App() {
               Process
             </button>
             <button
-              onClick={() => navigateTo("community")}
-              className={`hover:text-signal transition-colors ${view === "community" ? "text-signal" : ""}`}
+              onClick={() => navigateTo("successStories")}
+              className={`hover:text-signal transition-colors ${view === "successStories" ? "text-signal" : ""}`}
             >
-              The Community
+              Success Stories
             </button>
             <button
               onClick={() => navigateTo("contact")}
@@ -138,10 +138,10 @@ export default function App() {
               Process
             </button>
             <button
-              onClick={() => navigateTo("community")}
+              onClick={() => navigateTo("successStories")}
               className="text-left hover:text-signal border-b border-oxford/5 pb-2"
             >
-              The Community
+              Success Stories
             </button>
             <button
               onClick={() => navigateTo("contact")}
@@ -181,8 +181,8 @@ export default function App() {
         {view === "process" && (
           <ProcessPage onOpenApplication={() => setIsApplicationOpen(true)} />
         )}
-        {view === "community" && (
-          <CommunityPage onOpenApplication={() => setIsApplicationOpen(true)} />
+        {view === "successStories" && (
+          <SuccessStoriesPage onOpenApplication={() => setIsApplicationOpen(true)} />
         )}
         {view === "contact" && (
           <ContactPage 

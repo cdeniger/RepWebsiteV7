@@ -21,3 +21,19 @@ export interface DiagnosticState {
   snapshotData?: any;
   aiAnalysis?: string;
 }
+
+export enum Category {
+  Workplace = "Workplace",
+  Professional = "Professional",
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  content: string;
+  category: Category;
+  rating: number;
+  date: string;
+  initials: string;
+}
