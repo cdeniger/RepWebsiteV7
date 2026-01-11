@@ -1,6 +1,8 @@
+
 import React from 'react';
-import { ArrowRight, ShieldCheck, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
+import MarketDynamics from '../components/MarketDynamics';
 
 const HomePage: React.FC<{ 
   onOpenDiagnostic: () => void; 
@@ -9,10 +11,10 @@ const HomePage: React.FC<{
   return (
     <div className="animate-fadeIn">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 px-6 bg-bone">
         <div className="max-w-7xl mx-auto space-y-8 grid md:grid-cols-12 gap-8">
           <div className="md:col-span-8 lg:col-span-8 text-left">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] animate-fadeInUp mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] animate-fadeInUp mb-8 text-oxford">
               The role that defines your future is out there.{" "}
               <br className="hidden md:block" />
               <span className="italic font-normal text-oxford/70">
@@ -37,52 +39,11 @@ const HomePage: React.FC<{
         </div>
       </section>
 
-      {/* Philosophy / How It Works Grid Summary */}
-      <section className="py-24 bg-oxford text-bone px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 border-t border-bone/20 pt-12">
-            {/* Pillar 1 */}
-            <div className="space-y-6">
-              <div className="w-12 h-12 flex items-center justify-center border border-bone/20 text-signal">
-                <Target size={24} />
-              </div>
-              <h3 className="text-2xl font-bold">Audit & Rebuild.</h3>
-              <p className="text-bone/70 leading-relaxed text-sm font-mono">
-                We audit your career capital and rebuild your brand assets. You
-                get a sharp new narrative, an optimized résumé, and a market map
-                targeting your highest-value opportunities.
-              </p>
-            </div>
+      <hr className="border-t-[12px] border-oxford" />
 
-            {/* Pillar 2 */}
-            <div className="space-y-6">
-              <div className="w-12 h-12 flex items-center justify-center border border-bone/20 text-signal">
-                <TrendingUp size={24} />
-              </div>
-              <h3 className="text-2xl font-bold">Pipeline Architecture.</h3>
-              <p className="text-bone/70 leading-relaxed text-sm font-mono">
-                Isolation kills momentum. We move beyond reactive job boards to
-                build and manage a proactive opportunity pipeline. We drive the
-                outreach and sequencing.
-              </p>
-            </div>
+      <MarketDynamics />
 
-            {/* Pillar 3 */}
-            <div className="space-y-6">
-              <div className="w-12 h-12 flex items-center justify-center border border-bone/20 text-signal">
-                <ShieldCheck size={24} />
-              </div>
-              <h3 className="text-2xl font-bold">Strategy & Oversight.</h3>
-              <p className="text-bone/70 leading-relaxed text-sm font-mono">
-                We move from search to strategy. We formulate a definitive plan
-                and prioritize the critical steps to achieve it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Invisible Leverage Section (Replaces Methodology Strip) */}
+      {/* Invisible Leverage Section */}
       <section className="py-24 px-6 bg-oxford text-bone">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
           <div className="max-w-2xl">
