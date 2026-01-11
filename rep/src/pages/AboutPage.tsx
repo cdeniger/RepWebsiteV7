@@ -6,16 +6,16 @@ const AboutPage: React.FC<{ onOpenApplication: () => void }> = ({
 }) => (
   <div className="animate-fadeIn">
     {/* SECTION 1: HERO / MISSION STATEMENT */}
-    <section className="bg-oxford text-bone pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-      <div className="max-w-7xl mx-auto space-y-8">
-        <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight max-w-5xl">
-          The New Standard for <br /> Career Management
+    <section className="bg-oxford text-bone pt-24 pb-16 md:pt-32 md:pb-24 px-6">
+      <div className="max-w-4xl mx-auto text-center space-y-8">
+        <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight">
+          The Headhunter Conflict
         </h1>
-        <p className="font-mono text-sm md:text-base text-bone/70 max-w-3xl leading-relaxed">
-          Talent deserves representation. We believe corporate professionals
-          deserve the same fiduciary-level representation. Our goal isn't just
-          to find you a job; it is to place you in an environment where you are
-          valued, resourced, and positioned to thrive.
+        <p className="font-mono text-sm md:text-base text-bone/70 max-w-3xl mx-auto leading-relaxed">
+          The global recruitment industry is structurally broken by a
+          fundamental Principal-Agent Problem. Recruiters work on the priorities
+          of the hiring companies, and great candidates can get lost in the
+          shuffle. Rep. creates a new category: The Career Agency.
         </p>
       </div>
     </section>
@@ -23,15 +23,7 @@ const AboutPage: React.FC<{ onOpenApplication: () => void }> = ({
     {/* SECTION 2: THE ORIGIN & MARKET FAILURE */}
     <section className="py-24 px-6 bg-bone text-oxford">
       <div className="max-w-4xl mx-auto text-center space-y-8">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold">
-          The Headhunter Conflict
-        </h2>
-        <p className="font-mono text-sm md:text-base leading-relaxed text-oxford/70 max-w-2xl mx-auto">
-          The global recruitment industry is structurally broken by a
-          fundamental Principal-Agent Problem. Recruiters work on the priorities
-          of the hiring companies, and great candidates can get lost in the
-          shuffle. Rep. creates a new category: The Career Agency.
-        </p>
+        {/* New content will be added here */}
       </div>
     </section>
 

@@ -122,7 +122,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
             },
             {
               week: "Week 2",
-              title: "Brand Asset Overhaul",
+              title: "Brand Asset Architecture",
               desc: "We deliver your Achievement-Forward Résumé and optimized LinkedIn profile, ready for market.",
             },
             {
@@ -132,7 +132,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
             },
             {
               week: "Week 4",
-              title: "Pipeline Activation",
+              title: "Outreach & Activation",
               desc: "We generate the Outreach Script Pack and launch the first sequence of personalized emails to the target market.",
             },
           ].map((item, i) => (
@@ -175,7 +175,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
               Lead
             </div>
             <h3 className="font-serif text-2xl font-bold text-oxford flex items-center gap-3">
-              Senior Career Agent
+              Senior Career Advisor
             </h3>
             <div className="font-mono text-xs text-signal font-bold uppercase">
               The Strategist
@@ -191,7 +191,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
               Support
             </div>
             <h3 className="font-serif text-2xl font-bold text-oxford">
-              Associate Agent
+              Associate Advisor
             </h3>
             <div className="font-mono text-xs text-signal font-bold uppercase">
               The Builder

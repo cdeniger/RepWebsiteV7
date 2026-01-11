@@ -5,46 +5,8 @@ import { Button } from './Button';
 import { DiagnosticState, DiagnosticStep } from '../types';
 import { generateCareerAnalysis } from '../services/geminiService';
 import { saveLeadData } from '../services/dbService';
+import { QUESTIONS, CLARIFIER_LIBRARY } from '../data/diagnosticData';
 
-// --- DATA CONSTANTS (KEEPING ORIGINAL FOR CONTEXT) ---
-const CLARIFIER_LIBRARY = {
-  USP_OUTCOME_CATEGORY: {
-    id: "USP_OUTCOME_CATEGORY",
-    question: "Which outcome best reflects the impact you’re referring to?",
-    options: ["Revenue or growth impact", "Operational efficiency", "Team performance / retention", "Speed of execution", "Risk reduction / quality", "Skip"],
-  },
-  REMOTE_HYBRID_CLARITY: {
-    id: "REMOTE_HYBRID_CLARITY",
-    question: "Which is most accurate for your work preference?",
-    options: ["Fully remote", "Remote-first, occasional onsite", "Hybrid, with clear flexibility", "Skip"],
-  },
-  TRAVEL_TOLERANCE: {
-    id: "TRAVEL_TOLERANCE",
-    question: "What level of travel is truly comfortable for you?",
-    options: ["None / very rare", "Occasional (≤10%)", "Moderate (10–25%)", "Frequent (25%+)", "Skip"],
-  },
-  DEALBREAKER_STRENGTH: {
-    id: "DEALBREAKER_STRENGTH",
-    question: "Is this an absolute 'no,' or something we should screen carefully for?",
-    options: ["Absolute deal-breaker", "Strong preference", "Context-dependent", "Skip"],
-  },
-  MISUNDERSTOOD_DIMENSION: {
-    id: "MISUNDERSTOOD_DIMENSION",
-    question: "What do you think is most often misunderstood about your background?",
-    options: ["Scope of impact", "Leadership vs IC level", "Industry transferability", "Job changes / transitions", "Skip"],
-  }
-};
-
-const QUESTIONS = [
-  { id: 'current_status', type: 'single', title: 'Current Context', prompt: 'Which best describes your situation right now?', options: ['Employed, not actively looking', 'Employed, passively exploring', 'Actively interviewing', 'In transition / recently left', 'Considering a change in the next year'] },
-  { id: 'career_stage', type: 'single', title: 'Career Stage', prompt: 'Which best reflects your current career stage?', options: ['Early career', 'Mid-career individual contributor', 'Senior / Staff+ individual contributor', 'Manager / people leader', 'Executive'] },
-  { id: 'role_direction', type: 'multi', max: 2, title: 'Role Direction', prompt: 'What are you most interested in optimizing for right now?', options: ['Hands-on execution', 'Owning ambiguous problems', 'Leading or developing people', 'Strategic influence', 'Exploring / sense-making'] },
-  { id: 'environment_fit', type: 'single', title: 'Environment Fit', prompt: 'Where do you tend to do your best work?', options: ['Fast-moving, ambiguous environments', 'Structured, well-defined organizations', 'Scaling teams building systems', 'Stable, mature organizations', 'Depends heavily on leadership'] },
-  { id: 'strengths', type: 'multi', max: 2, title: 'Strength Activation', prompt: 'Where do you most consistently create outsized value?', options: ['Driving execution through ambiguity', 'Designing systems or processes', 'Leading or developing people', 'Technical problem-solving', 'Navigating complex stakeholders', 'Commercial or growth impact'] },
-  { id: 'differentiator', type: 'single', title: 'Differentiation Signal', prompt: 'Compared to peers, what most differentiates you?', options: ['Speed of execution', 'Quality of judgment', 'Depth of expertise', 'Ability to bridge functions', 'Leadership presence', 'Pattern recognition'] },
-  { id: 'primary_tradeoff', type: 'single', title: 'Priority Tradeoff', prompt: 'If you had to prioritize one right now, which matters most?', options: ['Maximizing compensation', 'Expanding scope and ownership', 'Learning and long-term growth', 'Stability and predictability', 'Work-life balance'] },
-  { id: 'nuance_text', type: 'textarea', title: 'Optional Nuance', prompt: 'Is there anything important about how you work that is often misunderstood?', placeholder: 'Share any specific context...', optional: true }
-];
 
 const calculateScores = (answers: any) => {
   let leverage = 40;
@@ -97,9 +59,10 @@ const determineClarifier = (nuanceText = '') => {
 interface DiagnosticModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenApplication: () => void;
 }
 
-export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClose }) => {
+export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClose, onOpenApplication }) => {
   const [state, setState] = useState<DiagnosticState>({
     step: DiagnosticStep.INTRO,
     currentQuestionIndex: 0,
@@ -264,7 +227,7 @@ if (!validateEmail(state.leadInfo.email)) {
                 <p className="font-mono text-sm text-oxford/70">Please select your top two choices</p>
               )}
               <div className="grid gap-3">
-                {currentQ.type === 'single' && currentQ.options?.map(opt => (
+                {currentQ.type === 'single' && currentQ.options?.map((opt: string) => (
                   <button key={opt} onClick={() => handleAnswer(opt)} className="p-4 border border-oxford/10 [@media(hover:hover)]:hover:border-signal [@media(hover:hover)]:hover:bg-white text-left transition-all font-serif text-lg font-medium">
                     {opt}
                   </button>
@@ -272,7 +235,7 @@ if (!validateEmail(state.leadInfo.email)) {
                 {currentQ.type === 'multi' && (
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {currentQ.options?.map(opt => {
+                      {currentQ.options?.map((opt: string) => {
                         const isSelected = (state.answers[currentQ.id as keyof typeof state.answers] as string[])?.includes(opt);
                         return (
                           <button key={opt} onClick={() => {
@@ -293,7 +256,7 @@ if (!validateEmail(state.leadInfo.email)) {
                 {currentQ.type === 'textarea' && (
                   <div className="space-y-6">
                     <textarea className="w-full bg-white border border-oxford/10 p-4 font-serif focus:outline-none focus:border-signal min-h-[120px]" placeholder={currentQ.placeholder} onChange={(e) => handleAnswer(e.target.value)} />
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-.center">
                       <button onClick={handleNext} className="font-mono text-xs uppercase text-oxford/40 [@media(hover:hover)]:hover:text-oxford">Skip</button>
                       <Button onClick={handleNext}>Finish Assessment</Button>
                     </div>
@@ -414,7 +377,7 @@ if (!validateEmail(state.leadInfo.email)) {
               </div>
 
               <div className="pt-8 border-t border-oxford/10 flex flex-col items-center gap-6">
-                <Button onClick={() => window.location.href = '#contact'}>Review Snapshot with a Strategist</Button>
+                <Button onClick={() => { onClose(); onOpenApplication(); }}>Review Snapshot with a Strategist</Button>
                 <p className="text-[10px] font-mono text-oxford/40 text-center max-w-sm">
                   Most professionals search alone—reacting to listings and guessing at fit. Rep. provides the fiduciary advocacy needed to secure your trajectory.
                 </p>

@@ -10,7 +10,7 @@ export default function SuccessStoriesPage({ onOpenApplication }: { onOpenApplic
   return (
     <div className="animate-fadeIn bg-bone">
       {/* Hero Header */}
-      <section className="bg-oxford text-bone pt-32 pb-24 md:pt-48 md:pb-32 px-6 relative overflow-hidden">
+      <section className="bg-oxford text-bone pt-24 pb-16 md:pt-32 md:pb-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-full h-full border-r border-t border-bone/20 transform translate-x-1/2 -translate-y-1/2"></div>
         </div>

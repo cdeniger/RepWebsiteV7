@@ -111,11 +111,11 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
                   10%
                   <span className="text-sm font-sans font-normal text-oxford/60">
                     {" "}
-                    of Base Salary
+                    of Base Salary (one-time fee)
                   </span>
                 </div>
                 <div className="font-mono text-xs text-signal mt-1">
-                  Success Fee (ISA upon placement)
+                  Success Fee (ISA upon placement - financing available)
                 </div>
               </div>
             </div>

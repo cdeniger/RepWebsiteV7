@@ -217,6 +217,7 @@ export default function App() {
       <DiagnosticModal
         isOpen={isDiagnosticOpen}
         onClose={() => setIsDiagnosticOpen(false)}
+        onOpenApplication={() => setIsApplicationOpen(true)}
       />
 
       {/* Application Modal Component */}
