@@ -183,7 +183,7 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
   const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setShowEmailError(true);
-    if (!validateEmail(state.leadInfo.email)) {
+if (!validateEmail(state.leadInfo.email)) {
       return;
     }
     setState(prev => ({ ...prev, step: DiagnosticStep.ANALYZING }));
@@ -219,7 +219,7 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-oxford/95 backdrop-blur-md">
-      <div className="relative w-full max-w-2xl bg-bone border border-oxford shadow-2xl overflow-hidden flex flex-col min-h-[550px]">
+      <div className="relative w-full max-w-2xl bg-bone border border-oxford shadow-2xl flex flex-col max-h-[90vh] md:min-h-[550px]">
         
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-oxford/10 bg-white/50">
@@ -239,7 +239,7 @@ export const DiagnosticModal: React.FC<DiagnosticModalProps> = ({ isOpen, onClos
           </div>
         )}
 
-        <div className="flex-grow flex flex-col justify-center p-8 md:p-12">
+        <div className="flex-grow flex flex-col overflow-y-auto p-8 md:p-12">
           
           {state.step === DiagnosticStep.INTRO && (
             <div className="space-y-8 animate-fadeIn text-center md:text-left">
