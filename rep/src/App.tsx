@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './components/Button';
 import { DiagnosticModal } from './components/DiagnosticModal';
@@ -20,6 +20,10 @@ export default function App() {
     "home" | "about" | "services" | "process" | "successStories" | "contact"
   >("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const navigateTo = (
     newView:

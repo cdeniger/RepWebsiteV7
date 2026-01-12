@@ -1,31 +1,31 @@
 import React from 'react';
 import { Button } from '../components/Button';
+import HeadhunterConflict from '../components/HeadhunterConflict';
 
 const AboutPage: React.FC<{ onOpenApplication: () => void }> = ({
   onOpenApplication,
 }) => (
   <div className="animate-fadeIn">
     {/* SECTION 1: HERO / MISSION STATEMENT */}
-    <section className="bg-oxford text-bone pt-24 pb-16 md:pt-32 md:pb-24 px-6">
-      <div className="max-w-4xl mx-auto text-center space-y-8">
-        <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight">
-          The Headhunter Conflict
+    <section className="bg-oxford text-bone pt-24 pb-6 md:pt-32 md:pb-8 px-6 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto space-y-8 relative z-10">
+        <h1 className="font-serif text-5xl md:text-8xl font-bold leading-[0.9] max-w-5xl tracking-tighter">
+          The Headhunter <br /><span className="italic text-signal">Conflict.</span>
         </h1>
-        <p className="font-mono text-sm md:text-base text-bone/70 max-w-3xl mx-auto leading-relaxed">
-          The global recruitment industry is structurally broken by a
-          fundamental Principal-Agent Problem. Recruiters work on the priorities
-          of the hiring companies, and great candidates can get lost in the
-          shuffle. Rep. creates a new category: The Career Agency.
+        <p className="font-mono text-sm md:text-base text-bone/60 max-w-2xl leading-relaxed uppercase tracking-wider">
+          The global recruitment industry is structurally broken by a fundamental Principal-Agent Problem. 
+          Recruiters work on the priorities of the hiring companies, and great candidates can get lost in the shuffle. 
+          Rep. creates a new category: The Career Agency.
         </p>
       </div>
     </section>
 
-    {/* SECTION 2: THE ORIGIN & MARKET FAILURE */}
-    <section className="py-24 px-6 bg-bone text-oxford">
-      <div className="max-w-4xl mx-auto text-center space-y-8">
-        {/* New content will be added here */}
-      </div>
-    </section>
+    {/* SECTION 2: THE HEADHUNTER CONFLICT (GRAPHICAL) */}
+    <HeadhunterConflict />
 
     {/* SECTION 3: OUR PHILOSOPHY (3 PRINCIPLES) */}
     <section className="py-24 px-6 bg-bone text-oxford border-t border-oxford/5">

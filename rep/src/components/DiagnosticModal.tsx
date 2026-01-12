@@ -157,7 +157,7 @@ if (!validateEmail(state.leadInfo.email)) {
         const aiVerdict = await generateCareerAnalysis(state);
         const updatedState = { ...state, aiAnalysis: aiVerdict };
         
-        setLoadingStep("Synching with Agent Network...");
+        setLoadingStep("Syncing with Agent Network...");
         await saveLeadData(updatedState);
         
         setState(prev => ({ ...prev, step: DiagnosticStep.RESULT, aiAnalysis: aiVerdict }));
