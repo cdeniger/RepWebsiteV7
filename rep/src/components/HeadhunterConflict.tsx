@@ -175,14 +175,14 @@ const HeadhunterConflict: React.FC = () => {
       </div>
 
       <style>{`
-        /* CONFORMANT PATH REVEAL - SYNCED TO 16s CYCLE */
+        /* CONFORMANT PATH REVEAL - SYNCED TO 14s CYCLE */
         @keyframes conformant-path-reveal {
           0%, 100% { opacity: 0; }
           5%, 55% { opacity: 1; }
           65% { opacity: 0; }
         }
         .animate-conformant-path-reveal {
-          animation: conformant-path-reveal 16s linear infinite;
+          animation: conformant-path-reveal 14s linear infinite;
         }
 
         /* PERFECT PASS ANIMATION - UPDATED TO 14s LINEAR CYCLE */

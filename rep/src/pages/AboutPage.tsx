@@ -19,7 +19,9 @@ const AboutPage: React.FC<{ onOpenApplication: () => void }> = ({
     </section>
 
     {/* SECTION 2: THE HEADHUNTER CONFLICT (GRAPHICAL) */}
-    <HeadhunterConflict />
+    <div className="hidden md:block">
+      <HeadhunterConflict />
+    </div>
 
     {/* SECTION 3: OUR PHILOSOPHY (3 PRINCIPLES) */}
     <section className="py-24 px-6 bg-bone text-oxford border-t border-oxford/5">
