@@ -32,7 +32,7 @@ const HeadhunterConflict: React.FC = () => {
                   </p>
                 </div>
                 <div className="space-y-4">
-                  <span className="block font-mono text-[10px] font-black uppercase tracking-widest text-signal">02 / Non-Fiduciary Design</span>
+                  <span className="block font-mono text-[10px] font-black uppercase tracking-widest text-signal">02 / Conflict of Interest</span>
                   <p className="font-serif text-lg text-oxford leading-snug">
                     The 'Wall' exists to protect the Company's time, not to maximize the Candidate's potential.
                   </p>

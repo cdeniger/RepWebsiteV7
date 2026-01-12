@@ -10,7 +10,7 @@ const HomePage: React.FC<{
 }> = ({ onOpenDiagnostic, onOpenApplication }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  });
 
   return (
     <div className="animate-fadeIn">
