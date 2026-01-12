@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import MarketDynamics from '../components/MarketDynamics';
@@ -8,6 +8,10 @@ const HomePage: React.FC<{
   onOpenDiagnostic: () => void; 
   onOpenApplication: () => void; 
 }> = ({ onOpenDiagnostic, onOpenApplication }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="animate-fadeIn">
       {/* Hero Section */}

@@ -37,3 +37,12 @@ export interface Testimonial {
   date: string;
   initials: string;
 }
+
+export interface ProcessPhase {
+  id: string;
+  phase: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  highlights: string[];
+}

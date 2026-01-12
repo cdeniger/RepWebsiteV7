@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
+import StrategicFlowView from '../components/StrategicFlowView';
 
 const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
   onOpenApplication,
@@ -19,86 +20,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
     </section>
 
     <section className="py-24 px-6 bg-bone">
-        <div className="space-y-12 relative max-w-5xl mx-auto">
-          {/* Phase 1 */}
-          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white [@media(hover:hover)]:hover:border-signal/50 transition-colors shadow-sm">
-            <div className="md:w-1/3">
-              <div className="font-mono text-signal text-sm font-bold uppercase tracking-widest mb-2">
-                Phase I
-              </div>
-              <h3 className="font-serif text-3xl font-bold text-oxford">
-                The Launch
-              </h3>
-              <div className="font-mono text-xs text-oxford/50 mt-2">
-                Foundation Building (30 Days)
-              </div>
-            </div>
-            <div className="md:w-2/3">
-              <p className="font-mono text-sm text-oxford/80 leading-relaxed">
-                We audit your career capital and rebuild your brand assets. You
-                get a sharp new narrative, an optimized résumé, and a market map
-                targeting your highest-value opportunities.
-              </p>
-            </div>
-          </div>
-
-          {/* Arrow Down */}
-          <div className="flex justify-center -my-6 relative z-10 text-oxford/20">
-            <ArrowRight className="rotate-90" size={32} />
-          </div>
-
-          {/* Phase 2 */}
-          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white [@media(hover:hover)]:hover:border-signal/50 transition-colors shadow-sm">
-            <div className="md:w-1/3">
-              <div className="font-mono text-signal text-sm font-bold uppercase tracking-widest mb-2">
-                Phase II
-              </div>
-              <h3 className="font-serif text-3xl font-bold text-oxford">
-                Pipeline Velocity
-              </h3>
-              <div className="font-mono text-xs text-oxford/50 mt-2">
-                Market Activation
-              </div>
-            </div>
-            <div className="md:w-2/3">
-              <p className="font-mono text-sm text-oxford/80 leading-relaxed">
-                Isolation kills momentum. We move beyond reactive job boards to
-                build and manage a proactive opportunity pipeline. We drive the
-                outreach and sequencing, ensuring you have the consistent volume
-                and "at-bats" needed to secure the right offer.
-              </p>
-            </div>
-          </div>
-
-          {/* Arrow Down */}
-          <div className="flex justify-center -my-6 relative z-10 text-oxford/20">
-            <ArrowRight className="rotate-90" size={32} />
-          </div>
-
-          {/* Phase 3 */}
-          <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white [@media(hover:hover)]:hover:border-signal/50 transition-colors shadow-sm">
-            <div className="md:w-1/3">
-              <div className="font-mono text-signal text-sm font-bold uppercase tracking-widest mb-2">
-                Phase III
-              </div>
-              <h3 className="font-serif text-3xl font-bold text-oxford">
-                The Architecture
-              </h3>
-              <div className="font-mono text-xs text-oxford/50 mt-2">
-                Execution & Long-Term Design
-              </div>
-            </div>
-            <div className="md:w-2/3">
-              <p className="font-mono text-sm text-oxford/80 leading-relaxed">
-                We move from search to strategy. We formulate a definitive plan
-                and prioritize the critical steps to achieve it. As your
-                permanent partner, we provide the resources and oversight you
-                need to ensure you stay on that trajectory long after the offer
-                is signed.
-              </p>
-            </div>
-          </div>
-        </div>
+      <StrategicFlowView />
     </section>
 
     {/* C. DETAIL FOCUS: PHASE I DEEP DIVE */}
