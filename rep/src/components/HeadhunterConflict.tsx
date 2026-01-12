@@ -32,8 +32,8 @@ const HeadhunterConflict: React.FC = () => {
                   </p>
                 </div>
                 <div className="space-y-4">
-                  <span className="block font-mono text-[10px] font-black uppercase tracking-widest text-oxford/40">02 / Non-Fiduciary Design</span>
-                  <p className="font-serif text-lg text-oxford/40 leading-snug italic">
+                  <span className="block font-mono text-[10px] font-black uppercase tracking-widest text-signal">02 / Non-Fiduciary Design</span>
+                  <p className="font-serif text-lg text-oxford leading-snug">
                     The 'Wall' exists to protect the Company's time, not to maximize the Candidate's potential.
                   </p>
                 </div>
@@ -60,8 +60,8 @@ const HeadhunterConflict: React.FC = () => {
 
                   {/* SUCCESS EVENT LAYER: Centered at 50% */}
                   <div className="absolute inset-x-0 top-1/2 flex items-center justify-center pointer-events-none z-30 h-0">
-                    {/* Aperture Flash Ripple */}
-                    <div className="absolute left-[calc(50%+16px)] w-4 h-4 rounded-full border border-signal/50 animate-aperture-flash -translate-y-1/2"></div>
+                    {/* Aperture Flash Ripple - Aligned to Wall Exit (50% + 64px) */}
+                    <div className="opacity-0 absolute left-[calc(50%+64px)] w-4 h-4 rounded-full border border-signal/50 animate-aperture-flash -translate-y-1/2"></div>
                     
                     {/* HIRE EVENT BADGE */}
                     <div className="absolute right-[22.5%] -translate-y-[160%] translate-x-1/2 opacity-0 animate-hire-label-flash flex flex-col items-center">
@@ -79,10 +79,19 @@ const HeadhunterConflict: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* TRAJECTORY PATH LINE - Centered at 50% */}
-                  <div className="absolute left-[calc(50%+16px)] right-0 top-1/2 h-px border-t border-dotted border-oxford/10 z-10"></div>
+                  {/* CONFORMANT PATH (Left side Trajectory) - Container bounded by Wall Edge (50%-64px) */}
+                  <div className="absolute left-0 right-[calc(50%+64px)] top-1/2 h-0 border-t-2 border-dashed border-oxford/25 z-10 opacity-0 animate-conformant-path-reveal">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full pb-3">
+                      <span className="font-mono text-[9px] uppercase tracking-[0.5em] font-black text-oxford/90 whitespace-nowrap">
+                        THE CHECKBOX CANDIDATE
+                      </span>
+                    </div>
+                  </div>
 
-                  {/* THE WALL - Reduced height to create breathing room */}
+                  {/* TRAJECTORY PATH LINE (Right side Outcome) - Starts at Wall Exit (50%+64px) */}
+                  <div className="absolute left-[calc(50%+64px)] right-0 top-1/2 h-px border-t border-dotted border-oxford/10 z-10"></div>
+
+                  {/* THE WALL - 128px width (64px each side of center) */}
                   <div className="relative z-20 w-32 h-[92%] flex flex-col items-center justify-center">
                     <div className="w-full flex-grow bg-oxford shadow-2xl relative">
                       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-px bg-white/20"></div>
@@ -124,17 +133,17 @@ const HeadhunterConflict: React.FC = () => {
                   <div className="absolute inset-0 pointer-events-none z-30 overflow-hidden">
                     <div className="opacity-0 absolute left-1/2 top-[12%] w-9 h-9 rounded-full border border-signal bg-signal/5 animate-stream-reject-large"></div>
                     <div className="opacity-0 absolute left-1/2 top-[78%] w-10 h-10 border border-signal bg-signal/5 animate-stream-reject-long"></div>
-                    <div className="opacity-0 absolute left-1/2 top-[32%] w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[26px] border-b-signal opacity-30 animate-stream-reject-tri"></div>
-                    <div className="opacity-0 absolute left-1/2 top-[52%] w-7 h-7 border border-signal bg-signal/5 opacity-50 animate-stream-reject-square"></div>
-                    <div className="opacity-0 absolute left-1/2 top-[25%] w-8 h-8 bg-signal/10 border border-signal opacity-40 animate-stream-reject-hex" 
+                    <div className="opacity-0 absolute left-1/2 top-[32%] w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[26px] border-b-signal animate-stream-reject-tri"></div>
+                    <div className="opacity-0 absolute left-1/2 top-[52%] w-7 h-7 border border-signal bg-signal/5 animate-stream-reject-square"></div>
+                    <div className="opacity-0 absolute left-1/2 top-[25%] w-8 h-8 bg-signal/10 border border-signal animate-stream-reject-hex" 
                         style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}></div>
-                    <div className="opacity-0 absolute left-1/2 top-[45%] w-8 h-8 bg-signal opacity-20 animate-stream-reject-star"
+                    <div className="opacity-0 absolute left-1/2 top-[45%] w-8 h-8 bg-signal animate-stream-reject-star"
                         style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
                     <div className="opacity-0 absolute left-1/2 top-[65%] w-12 h-6 border-2 border-dashed border-signal/40 animate-stream-reject-dash"></div>
                     <div className="opacity-0 absolute left-1/2 top-[20%] w-2 h-2 bg-signal animate-stream-reject-rapid"></div>
                     <div className="opacity-0 absolute left-1/2 top-[38%] w-6 h-6 border border-signal/30 rotate-45 animate-stream-reject-diamond"></div>
-                    <div className="opacity-0 absolute left-1/2 top-[60%] w-4 h-4 rounded-full bg-signal opacity-40 animate-stream-reject-small-dot"></div>
-                    <div className="opacity-0 absolute left-1/2 top-[40%] w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-signal opacity-40 animate-stream-reject-tri-alt"></div>
+                    <div className="opacity-0 absolute left-1/2 top-[60%] w-4 h-4 rounded-full bg-signal animate-stream-reject-small-dot"></div>
+                    <div className="opacity-0 absolute left-1/2 top-[40%] w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-signal animate-stream-reject-tri-alt"></div>
                   </div>
 
                   {/* Right Side: THE PROMISED LAND */}
@@ -166,67 +175,84 @@ const HeadhunterConflict: React.FC = () => {
       </div>
 
       <style>{`
-        /* PERFECT PASS ANIMATION - SLOWED TO 16s */
+        /* CONFORMANT PATH REVEAL - SYNCED TO 16s CYCLE */
+        @keyframes conformant-path-reveal {
+          0%, 100% { opacity: 0; }
+          5%, 55% { opacity: 1; }
+          65% { opacity: 0; }
+        }
+        .animate-conformant-path-reveal {
+          animation: conformant-path-reveal 16s linear infinite;
+        }
+
+        /* PERFECT PASS ANIMATION - UPDATED TO 14s LINEAR CYCLE */
         @keyframes pass-perfect {
           0% { transform: translateX(-450px) scale(1); opacity: 0; border-width: 2px; background-color: transparent; border-color: #0A231F; }
-          10% { opacity: 0.8; }
-          45% { transform: translateX(-30px) scale(1); border-width: 2px; opacity: 0.9; border-color: #0A231F; }
+          5% { opacity: 0.8; }
+          
+          /* ENTRY POINT: Steady speed from 0 to 40% (9.65 px/%) */
+          40% { transform: translateX(-64px) scale(1); border-width: 2px; opacity: 1; border-color: #0A231F; } 
+          
+          /* CENTER: Slower velocity through the wall (6.4 px/%) */
           50% { transform: translateX(0) scale(1.15); border-width: 4px; border-color: #0A231F; opacity: 1; background-color: rgba(255, 255, 255, 0.4); }
-          55% { transform: translateX(30px) scale(1); border-width: 2px; background-color: transparent; opacity: 0.9; }
+          
+          /* EXIT POINT: Clearing the barrier at 60% */
+          60% { transform: translateX(64px) scale(1); border-width: 2px; background-color: transparent; opacity: 1; border-color: #D65A31; } 
+          
+          /* OUTCOME: Speed increases back to 9.65 px/% */
           65% { border-color: #D65A31; scale: 1.1; }
-          90% { opacity: 0.8; }
+          95% { transform: translateX(450px) scale(1.2); opacity: 0.8; border-width: 2px; border-color: #D65A31; }
           100% { transform: translateX(450px) scale(1.2); opacity: 0; border-width: 2px; border-color: #D65A31; }
         }
         .animate-pass-perfect {
-          animation: pass-perfect 16s cubic-bezier(0.2, 0, 0, 1) infinite;
+          animation: pass-perfect 14s linear infinite;
         }
 
-        /* APERTURE FLASH RIPPLE - SLOWED TO 16s */
+        /* APERTURE FLASH RIPPLE - SYNCED TO 60% EXIT AT 14s */
         @keyframes aperture-flash {
-          0%, 54.9% { opacity: 0; transform: scale(0.5); }
-          55% { opacity: 1; transform: scale(1); }
-          65% { opacity: 0; transform: scale(4); }
+          0%, 59.9% { opacity: 0; transform: scale(0.5); }
+          60% { opacity: 1; transform: scale(1); }
+          75% { opacity: 0; transform: scale(4); }
           100% { opacity: 0; transform: scale(4); }
         }
         .animate-aperture-flash {
-          animation: aperture-flash 16s ease-out infinite;
+          animation: aperture-flash 14s ease-out infinite;
         }
 
-        /* HIRE LABEL FLASH - SLOWED TO 16s */
+        /* HIRE LABEL FLASH - SYNCED TO 60% EXIT AT 14s */
         @keyframes hire-label-flash {
-          0%, 54.9% { opacity: 0; transform: translate(50%, -160%) scale(0.9); }
-          55% { opacity: 1; transform: translate(50%, -160%) scale(1.05); }
-          60% { transform: translate(50%, -160%) scale(1); }
+          0%, 59.9% { opacity: 0; transform: translate(50%, -160%) scale(0.9); }
+          60% { opacity: 1; transform: translate(50%, -160%) scale(1.05); }
           65% { opacity: 1; transform: translate(50%, -160%) scale(1); }
-          70% { opacity: 0; transform: translate(50%, -160%) scale(1.02); }
+          75% { opacity: 0; transform: translate(50%, -160%) scale(1.02); }
           100% { opacity: 0; }
         }
         .animate-hire-label-flash {
-          animation: hire-label-flash 16s cubic-bezier(0.2, 0, 1, 0.2) infinite;
+          animation: hire-label-flash 14s cubic-bezier(0.2, 0, 1, 0.2) infinite;
         }
 
-        /* PROMISED LAND BACKGROUND FLASH - SLOWED TO 16s */
+        /* PROMISED LAND BACKGROUND FLASH - SYNCED TO 60% EXIT AT 14s */
         @keyframes promised-land-flash {
-          0%, 54.9% { background-color: transparent; }
-          55% { background-color: rgba(214, 90, 49, 0.15); }
-          65% { background-color: transparent; }
+          0%, 59.9% { background-color: transparent; }
+          60% { background-color: rgba(214, 90, 49, 0.15); }
+          75% { background-color: transparent; }
           100% { background-color: transparent; }
         }
         .animate-promised-land-flash {
-          animation: promised-land-flash 16s ease-out infinite;
+          animation: promised-land-flash 14s ease-out infinite;
         }
 
-        /* BLOOM CORE - SLOWED TO 16s */
+        /* BLOOM CORE - SYNCED TO 60% EXIT AT 14s */
         @keyframes bloom-core {
-          0%, 55% { opacity: 0; transform: scale(0.5); }
-          65%, 90% { opacity: 1; transform: scale(1); }
+          0%, 60% { opacity: 0; transform: scale(0.5); }
+          70%, 95% { opacity: 1; transform: scale(1); }
           100% { opacity: 0; transform: scale(1.5); }
         }
         .animate-bloom-core {
-          animation: bloom-core 16s cubic-bezier(0.2, 0, 0, 1) infinite;
+          animation: bloom-core 14s cubic-bezier(0.2, 0, 0, 1) infinite;
         }
 
-        /* IMPACT LABEL ANIMATION - REMAINS FAST (7s-10s range) */
+        /* IMPACT LABEL ANIMATION - UNCHANGED CYCLES */
         @keyframes impact-flash {
           0%, 39.9% { opacity: 0; transform: translateX(0) translateY(-50%); }
           40% { opacity: 1; transform: translateX(0) translateY(-50%); }
@@ -240,7 +266,7 @@ const HeadhunterConflict: React.FC = () => {
           animation-iteration-count: infinite;
         }
 
-        /* PHYSICS-CORRECT REJECTION STREAM KEYFRAMES - REMAINS FAST */
+        /* PHYSICS-CORRECT REJECTION STREAM KEYFRAMES - UNCHANGED CYCLES */
         @keyframes stream-reject-large {
           0% { transform: translateX(-500px) translateY(0); opacity: 0; }
           10% { opacity: 1; }
