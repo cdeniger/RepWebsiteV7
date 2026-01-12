@@ -10,16 +10,12 @@ export default function SuccessStoriesPage({ onOpenApplication }: { onOpenApplic
   return (
     <div className="animate-fadeIn bg-bone">
       {/* Hero Header */}
-      <section className="bg-oxford text-bone pt-24 pb-16 md:pt-32 md:pb-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-full h-full border-r border-t border-bone/20 transform translate-x-1/2 -translate-y-1/2"></div>
-        </div>
-        <div className="max-w-7xl mx-auto space-y-10 relative z-10">
-          <div className="font-mono text-signal text-base uppercase tracking-[0.4em] font-black">Fiduciary Proof</div>
-          <h1 className="font-serif text-5xl md:text-7xl font-bold leading-[1.1] max-w-4xl tracking-tighter">
-            Success Stories <br /> <span className="italic font-normal opacity-60">Verified Outcomes.</span>
+      <section className="pt-32 pb-16 px-6 bg-oxford text-bone">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
+            Success Stories
           </h1>
-          <p className="font-serif text-lg md:text-xl text-bone/60 max-w-2xl leading-relaxed">
+          <p className="font-mono text-sm uppercase tracking-widest text-bone/60 max-w-2xl">
             Real outcomes from high-stakes career moves. This is what professional representation looks like in practice.
           </p>
         </div>

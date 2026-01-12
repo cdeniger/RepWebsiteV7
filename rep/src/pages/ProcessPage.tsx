@@ -7,19 +7,18 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
 }) => (
   <div className="animate-fadeIn">
     {/* B. HIGH-LEVEL OVERVIEW */}
-    <section className="pt-32 pb-16 px-6 bg-bone">
+    <section className="pt-32 pb-16 px-6 bg-oxford text-bone">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-oxford">
-            The Rep. Framework: <br />
-            <span className="text-signal">From Strategy to Success</span>
-          </h1>
-          <p className="font-mono text-sm md:text-base text-oxford/70 leading-relaxed">
-            We replace guesswork with architectural design. Your engagement
-            follows the disciplined, structured methodology of the Rep Playbook.
-          </p>
-        </div>
+        <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
+          The Rep. Framework
+        </h1>
+        <p className="font-mono text-sm uppercase tracking-widest text-bone/60 max-w-2xl">
+          We replace guesswork with architectural design. Your engagement follows the disciplined, structured methodology of the Rep Playbook.
+        </p>
+      </div>
+    </section>
 
+    <section className="py-24 px-6 bg-bone">
         <div className="space-y-12 relative max-w-5xl mx-auto">
           {/* Phase 1 */}
           <div className="flex flex-col md:flex-row gap-8 items-start p-8 border border-oxford/10 bg-white [@media(hover:hover)]:hover:border-signal/50 transition-colors shadow-sm">
@@ -100,7 +99,6 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     {/* C. DETAIL FOCUS: PHASE I DEEP DIVE */}

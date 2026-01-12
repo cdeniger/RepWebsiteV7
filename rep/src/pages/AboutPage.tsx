@@ -7,19 +7,13 @@ const AboutPage: React.FC<{ onOpenApplication: () => void }> = ({
 }) => (
   <div className="animate-fadeIn">
     {/* SECTION 1: HERO / MISSION STATEMENT */}
-    <section className="bg-oxford text-bone pt-24 pb-6 md:pt-32 md:pb-8 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto space-y-8 relative z-10">
-        <h1 className="font-serif text-5xl md:text-8xl font-bold leading-[0.9] max-w-5xl tracking-tighter">
-          The Headhunter <br /><span className="italic text-signal">Conflict.</span>
+    <section className="pt-32 pb-16 px-6 bg-oxford text-bone">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
+          The Headhunter Conflict
         </h1>
-        <p className="font-mono text-sm md:text-base text-bone/60 max-w-2xl leading-relaxed uppercase tracking-wider">
-          The global recruitment industry is structurally broken by a fundamental Principal-Agent Problem. 
-          Recruiters work on the priorities of the hiring companies, and great candidates can get lost in the shuffle. 
-          Rep. creates a new category: The Career Agency.
+        <p className="font-mono text-sm uppercase tracking-widest text-bone/60 max-w-2xl">
+          THE GLOBAL RECRUITMENT INDUSTRY IS STRUCTURALLY BROKEN BY A FUNDAMENTAL CONFLICT OF INTEREST. RECRUITERS WORK ON THE PRIORITIES OF THE HIRING COMPANIES, AND GREAT CANDIDATES CAN GET LOST IN THE SHUFFLE. REP. CREATES A NEW CATEGORY: THE CAREER AGENCY.
         </p>
       </div>
     </section>

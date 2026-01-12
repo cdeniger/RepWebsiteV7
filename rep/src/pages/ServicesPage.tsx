@@ -13,8 +13,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
           Engagement Models
         </h1>
         <p className="font-mono text-sm uppercase tracking-widest text-bone/60 max-w-2xl">
-          Structured for trajectory, acceleration, and long-term asset
-          protection.
+          STRUCTURED FOR ALIGNMENT, ACCELERATION, AND TRANSFORMING YOUR SEARCH. WE ONLY SUCCEED WHEN YOU SUCCEED.
         </p>
       </div>
     </section>
