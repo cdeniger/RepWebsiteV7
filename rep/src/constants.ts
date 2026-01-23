@@ -14,7 +14,7 @@ export const PHASES: ProcessPhase[] = [
     phase: 'PHASE II',
     title: 'Pipeline Velocity',
     subtitle: 'Active Market Penetration',
-    description: 'Isolation is the primary cause of search stagnation. We activate a proactive outreach engine, managing your market presence with sequencing that ensures consistent, high-leverage "at-bats".',
+    description: 'The foundation is built. Activity is growing. Time to sift through the noise and identify what is real, appealing, and how can we best position you for those opportunities when the “at-bats” come your way.',
     highlights: ['Multi-Channel Outreach', 'Strategic Sequencing', 'Pipeline Management', 'Volume Engineering']
   },
   {
@@ -22,7 +22,7 @@ export const PHASES: ProcessPhase[] = [
     phase: 'PHASE III',
     title: 'The Architecture',
     subtitle: 'Execution & Future-Proofing',
-    description: 'Transitioning from search to long-term trajectory. We provide definitive strategic oversight during negotiations and stay as your permanent partner to ensure you thrive well beyond the first 100 days.',
+    description: 'Practice hard so the game is easy. We weigh incoming opportunities and map out the benefits and downsides to each. As your permanent partner, we provide the resources and oversight you need to ensure you are hitting your short and long term goals long after the offer is signed.',
     highlights: ['Offer Negotiation', 'Strategic Oversight', 'Long-term Success Roadmap', 'Executive Mentorship']
   }
 ];

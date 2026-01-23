@@ -14,7 +14,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
           The Rep. Framework
         </h1>
         <p className="font-mono text-sm uppercase tracking-widest text-bone/60 max-w-2xl">
-          We replace guesswork with architectural design. Your engagement follows the disciplined, structured methodology of the Rep Playbook.
+          A vision without a plan is just a dream. We replace guesswork with architectural design. Your engagement follows the disciplined, structured methodology of the Rep. Playbook Program where we hold each other accountable and are relentlessly process-oriented.
         </p>
       </div>
     </section>

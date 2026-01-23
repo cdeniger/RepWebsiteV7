@@ -21,7 +21,7 @@ const ContactPage: React.FC<{ onOpenDiagnostic: () => void, onOpenApplication: (
             career capital and timeline, please start our diagnostic.
           </p>
           <div className="pt-4">
-            <Button onClick={onOpenDiagnostic}>Run My Career Diagnostic</Button>
+            <Button onClick={onOpenApplication}>Schedule a Call</Button>
           </div>
         </div>
 

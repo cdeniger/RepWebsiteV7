@@ -33,8 +33,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
               (The Full Agent Model)
             </h3>
             <p className="font-mono text-sm md:text-base leading-relaxed text-oxford/70">
-              For professionals seeking high-velocity career acceleration. We
-              completely manage the search, strategy, and negotiation process.
+              For professionals seeking high-velocity career acceleration. We provide full support across the search, strategy, and negotiation process.
             </p>
 
             <div className="py-6 space-y-4">
@@ -106,15 +105,37 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
               </div>
               <div className="w-full h-px bg-oxford/10"></div>
               <div>
-                <div className="text-3xl font-bold font-serif">
-                  10%
-                  <span className="text-sm font-sans font-normal text-oxford/60">
-                    {" "}
-                    of Base Salary (one-time fee)
-                  </span>
-                </div>
-                <div className="font-mono text-xs text-signal mt-1">
-                  Success Fee (ISA upon placement - financing available)
+                <h5 className="font-mono text-xs uppercase tracking-widest text-oxford/60">
+                  Income Sharing Agreement
+                </h5>
+                <table className="w-full text-left font-mono mt-2">
+                  <thead>
+                    <tr className="border-b border-oxford/10">
+                      <th className="py-2 pr-4 font-normal text-xs uppercase tracking-wider text-oxford/60">Salary Range</th>
+                      <th className="py-2 font-normal text-xs uppercase tracking-wider text-oxford/60 text-right">1-Year ISA</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-oxford/5">
+                    <tr>
+                      <td className="py-2 pr-4 text-sm">$60,000 - $99,999</td>
+                      <td className="py-2 text-sm font-bold text-right">9%</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 pr-4 text-sm">$100,000 - $139,999</td>
+                      <td className="py-2 text-sm font-bold text-right">8%</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 pr-4 text-sm">$140,000 - $199,999</td>
+                      <td className="py-2 text-sm font-bold text-right">7%</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 pr-4 text-sm">$200,000+</td>
+                      <td className="py-2 text-sm font-bold text-right">6%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className="font-mono text-xs text-signal mt-2 text-right">
+                  One-time fee upon placement (financing available)
                 </div>
               </div>
             </div>
