@@ -11,6 +11,7 @@ const ProcessPage: React.FC<{ onOpenApplication: () => void }> = ({
     <section className="pt-32 pb-16 px-6 bg-oxford text-bone">
       <div className="max-w-7xl mx-auto">
         <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
+          <span className="block text-4xl text-bone/80 mb-2">From Strategy to Success</span>
           The Rep. Framework
         </h1>
         <p className="font-mono text-sm uppercase tracking-widest text-bone/60 max-w-2xl">

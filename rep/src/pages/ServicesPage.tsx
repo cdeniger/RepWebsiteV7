@@ -13,7 +13,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
           Engagement Models
         </h1>
         <p className="font-mono text-sm uppercase tracking-widest text-bone/60 max-w-2xl">
-          STRUCTURED FOR ALIGNMENT, ACCELERATION, AND TRANSFORMING YOUR SEARCH. WE ONLY SUCCEED WHEN YOU SUCCEED.
+          Structured with alignment, strong incentives, and designed to produce long term partnerships.
         </p>
       </div>
     </section>
@@ -30,7 +30,7 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
               Comprehensive Representation.
             </h2>
             <h3 className="font-mono text-sm md:text-base text-oxford/70">
-              (The Full Agent Model)
+              (The Full Advisor Model)
             </h3>
             <p className="font-mono text-sm md:text-base leading-relaxed text-oxford/70">
               For professionals seeking high-velocity career acceleration. We provide full support across the search, strategy, and negotiation process.
