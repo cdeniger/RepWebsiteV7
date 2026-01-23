@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Check, Clock, FileText, Zap } from 'lucide-react';
+import { Briefcase, Check, Clock, Zap } from 'lucide-react';
 import { Button } from '../components/Button';
 
 const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
@@ -144,126 +144,140 @@ const ServicesPage: React.FC<{ onOpenApplication: () => void }> = ({
       </div>
     </section>
 
-    {/* TIER 2: STRATEGIC SPRINTS */}
+    {/* TIER 2: THE HYBRID APPROACH */}
     <section className="py-24 px-6 bg-bone">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12">
-          <div className="font-mono text-signal text-xs uppercase tracking-widest mb-2">
-            Tier 2: High-Impact Products
-          </div>
-          <h2 className="font-serif text-4xl font-bold">Strategic Sprints.</h2>
-          <p className="font-mono text-sm md:text-base mt-4 max-w-2xl text-oxford/70">
-            Fixed-fee, high-velocity interventions designed to solve immediate
-            career hurdles.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Sprint 1 */}
-          <div className="bg-white p-8 border border-oxford/10 [@media(hover:hover)]:hover:border-signal transition-colors group flex flex-col">
-            <div className="mb-6 text-oxford/20 group-hover:text-signal transition-colors">
-              <FileText size={32} />
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div className="space-y-6">
+            <div className="font-mono text-signal text-xs uppercase tracking-widest">
+              Tier 2: The Hybrid Approach
             </div>
-            <h3 className="font-serif text-2xl font-bold mb-4">
-              The Brand Asset Overhaul
-            </h3>
-            <p className="font-mono text-sm text-oxford/70 mb-8 flex-grow leading-relaxed">
-              We transform your history into a market-aligned,
-              Achievement-Forward Asset Portfolio (résumé, LinkedIn, bio) that
-              executes your specific narrative strategy.
+            <h2 className="font-serif text-4xl font-bold">
+              Pay-As-You-Go Representation.
+            </h2>
+            <p className="font-mono text-sm md:text-base leading-relaxed text-oxford/70">
+              Lower-fee, bite size pay as you go payment plans, same Flagship Comprehensive Representation. Start with a simple 3% monthly fee of your current or desired salary as we search, giving you full access to coaching, strategy, and hands-on support. Once you land the job, that same 3% continues based on your new salary—often resulting in significant savings.
             </p>
-            <Button variant="outline" className="w-full" onClick={onOpenApplication}>
-              Book Prep Session
-            </Button>
+
+            <div className="py-6 space-y-4">
+              <div className="flex items-start gap-4">
+                <Check className="text-signal shrink-0 mt-1" size={20} />
+                <div>
+                  <span className="font-bold block">
+                    Full Playbook Creation
+                  </span>
+                  <span className="text-sm text-oxford/60">
+                    Strategy definition and implementation.
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="text-signal shrink-0 mt-1" size={20} />
+                <div>
+                  <span className="font-bold block">Brand Asset Overhaul</span>
+                  <span className="text-sm text-oxford/60">
+                    Résumé, LinkedIn, Bio re-architecture.
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="text-signal shrink-0 mt-1" size={20} />
+                <div>
+                  <span className="font-bold block">Recharged Pipeline</span>
+                  <span className="text-sm text-oxford/60">
+                    Add Rep. proprietary public and non-public job opportunities
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="text-signal shrink-0 mt-1" size={20} />
+                <div>
+                  <span className="font-bold block">
+                    Shadow Negotiation Support
+                  </span>
+                  <span className="text-sm text-oxford/60">
+                    Offer sequencing and script development.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <Button onClick={onOpenApplication}>Apply for Representation</Button>
           </div>
 
-          {/* Sprint 2 */}
-          <div className="bg-white p-8 border border-oxford/10 [@media(hover:hover)]:hover:border-signal transition-colors group flex flex-col">
-            <div className="mb-6 text-oxford/20 group-hover:text-signal transition-colors">
-              <Zap size={32} />
+          {/* Fee Model Card */}
+          <div className="bg-white p-8 border border-oxford/10 shadow-lg relative">
+            <div className="absolute top-0 right-0 p-4">
+              <Zap className="text-oxford/20" size={48} />
             </div>
-            <h3 className="font-serif text-2xl font-bold mb-4">
-              The Interview Conversion Sprint
-            </h3>
-            <p className="font-mono text-sm text-oxford/70 mb-8 flex-grow leading-relaxed">
-              You are technically qualified but losing offers to better
-              storytellers. We provide targeted coaching to translate 'deep
-              problem solving' into business impact.
-            </p>
-            <Button variant="outline" className="w-full" onClick={onOpenApplication}>
-              Book Prep Session
-            </Button>
-          </div>
+            <h4 className="font-mono text-sm uppercase tracking-widest mb-6 text-oxford/60">
+              Fee Structure
+            </h4>
 
-          {/* Sprint 3 */}
-          <div className="bg-white p-8 border border-oxford/10 [@media(hover:hover)]:hover:border-signal transition-colors group flex flex-col">
-            <div className="mb-6 text-oxford/20 group-hover:text-signal transition-colors">
-              <Clock size={32} />
+            <div className="space-y-6">
+              <div>
+                <div className="text-3xl font-bold font-serif">
+                  3%
+                  <span className="text-sm font-sans font-normal text-oxford/60">
+                    /month of Target Salary
+                  </span>
+                </div>
+                <div className="font-mono text-xs text-signal mt-1">
+                  Phase 1: During Your Search
+                </div>
+              </div>
+              <div className="w-full h-px bg-oxford/10"></div>
+              <div>
+                <div className="text-3xl font-bold font-serif">
+                  3%
+                  <span className="text-sm font-sans font-normal text-oxford/60">
+                    {" "}
+                    of New Base Salary (one-time fee)
+                  </span>
+                </div>
+                <div className="font-mono text-xs text-signal mt-1">
+                  Phase 2: After You're Hired
+                </div>
+              </div>
             </div>
-            <h3 className="font-serif text-2xl font-bold mb-4">
-              The Compensation Strategy Audit
-            </h3>
-            <p className="font-mono text-sm text-oxford/70 mb-8 flex-grow leading-relaxed">
-              We utilize benchmarking calculators, analyze equity upside, and
-              script your Shadow Negotiation dialogue to ensure a 'Future
-              Colleague' outcome.
-            </p>
-            <Button variant="outline" className="w-full" onClick={onOpenApplication}>
-              Audit My Offer
-            </Button>
           </div>
         </div>
       </div>
     </section>
 
-    {/* TIER 3: CAREER STEWARDSHIP */}
+    {/* TIER 3: A LA CARTE CONSULTATION */}
     <section className="py-24 px-6 bg-oxford/5 border-t border-oxford/10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div className="flex-1 space-y-6">
-          <div className="font-mono text-signal text-xs uppercase tracking-widest">
-            Tier 3: The Alumni Phase
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="mb-8">
+          <div className="font-mono text-signal text-xs uppercase tracking-widest mb-2">
+            Tier 3: The Custom Option
           </div>
-          <h2 className="font-serif text-4xl font-bold">Career Stewardship.</h2>
-          <h3 className="font-mono text-sm md:text-base text-oxford/70">
-            For placed clients who want to protect their career trajectory.
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-signal rounded-full"></div>
-              <span className="text-sm font-mono">
-                Quarterly Architecture Reviews
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-signal rounded-full"></div>
-              <span className="text-sm font-mono">
-                Annual Benchmarking Refresh
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-signal rounded-full"></div>
-              <span className="text-sm font-mono">
-                Rep. Alumni Network Access
-              </span>
-            </div>
-          </div>
+          <h2 className="font-serif text-4xl font-bold">
+            a la Carte Consultation.
+          </h2>
+          <p className="font-mono text-sm md:text-base mt-4 max-w-2xl mx-auto text-oxford/70">
+            When capacity allows, Rep. will engage in selective custom consultations, usually as a prelude to full engagement. This provides preliminary access to the Rep team and our deliverables.
+          </p>
         </div>
 
-        <div className="bg-white p-8 border border-oxford/10 flex flex-col items-center text-center shadow-sm max-w-sm w-full">
+        <div className="inline-block bg-white p-8 border border-oxford/10 shadow-sm relative">
+          <div className="absolute top-4 right-4 text-oxford/20">
+            <Clock size={32} />
+          </div>
           <div className="font-mono text-xs uppercase tracking-widest text-oxford/60 mb-2">
-            Membership Fee
+            Consultation Fee
           </div>
           <div className="text-4xl font-bold font-serif mb-2">
-            $50
+            $250 - $300
             <span className="text-base font-sans font-normal text-oxford/60">
-              /mo
+              / 30-min session
             </span>
           </div>
           <p className="font-mono text-xs text-oxford/50 mb-6">
-            (Activates after ISA fulfillment)
+            + Includes weekly custom deliverables
           </p>
-          <Button variant="outline" className="w-full" onClick={onOpenApplication}>
-            Join Stewardship Program
+          <Button variant="outline" onClick={onOpenApplication}>
+            Book a Consultation
           </Button>
         </div>
       </div>
