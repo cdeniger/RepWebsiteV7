@@ -56,29 +56,16 @@ const ContactPage: React.FC<{ onOpenDiagnostic: () => void, onOpenApplication: (
               </div>
               <div>
                 <div className="text-oxford/50 text-xs uppercase tracking-widest mb-1">
-                  Finance & Billing (CPF Services LLC)
+                  Finance & Billing (CPF Finance LLC)
                 </div>
                 <a
-                  href="mailto:billing@cpf-services.com"
+                  href="mailto:billing@cpf-finance.com"
                   className="[@media(hover:hover)]:hover:text-signal transition-colors"
                 >
-                  billing@cpf-services.com
+                  billing@cpf-finance.com
                 </a>
               </div>
             </div>
-          </div>
-
-          <div className="space-y-4">
-            <div className="font-mono text-xs uppercase tracking-widest text-oxford/50">
-              Mailing Address
-            </div>
-            <address className="not-italic font-mono text-base leading-relaxed">
-              REP.
-              <br />
-              9329 Springwater Dr.
-              <br />
-              Dallas, TX 75228
-            </address>
           </div>
 
           {/* D. LEGAL & CONFIDENTIALITY GUARDRAILS */}
